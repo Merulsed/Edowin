@@ -23,7 +23,7 @@
 $fontStack: 'Lato', 'Segoe UI', 'Helvetica Neue', sans-serif;
 $grisAzulObscuro: #202224;
 $casiBlanco: #F0F0F0;
-
+$sidebarIconBox: 3rem;
 
 
 * {
@@ -66,7 +66,9 @@ body, html {
 	background-color: $grisAzulObscuro;
 	height: 100%;
 	min-height: 100%;
-	width: 100px;
+
+
+	width: $sidebarIconBox;
 
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -93,6 +95,7 @@ body, html {
 
 	.menu li {
 		display: block;
+		position: relative;
 	}
 
 	.menu li a {
@@ -101,7 +104,7 @@ body, html {
 		color: #FFFFFF;
 		font-size: 1rem;
 		font-weight: 300;
-		padding: 0.75rem 0 0.75rem 1.6rem;
+		padding: 0.75rem 0 0.75rem $sidebarIconBox;
 		border-top: 1px solid #3C3F42;
 		white-space: nowrap;
 		@include transition(background-color, 100ms, ease-in-out);
@@ -113,17 +116,28 @@ body, html {
 
 
 	.menu li a:hover {
-			cursor: pointer;
-			background-color: #2E516B;
-		}
+		cursor: pointer;
+		background-color: #2E516B;
+	}
+
+	.menu li img {
+		position: absolute;
+		display: inline-block;
+		height: 2rem;
+		top: 50%;
+		margin-top: -1rem;
+		left: 0.5rem;
+	}
 
 	.acerca-de {
 		background-color: inherit;
 		margin: 1rem auto 4rem; 
 	}
 
-	.acerca-de a {
 
+
+
+	.acerca-de a {
 		text-decoration: none;
 		display: block;
 		width: 100%;
@@ -134,7 +148,6 @@ body, html {
 		padding: 0.5rem 0;
 		white-space: nowrap;
 		background-color: inherit;
-
 	}
 
 	.acerca-de a:hover {
@@ -179,18 +192,18 @@ body, html {
 
 	.inputbox {
 
-		margin: 0.4rem 0;
+		margin: 1rem 0;
 
 		font-family: $fontStack;
 		font-weight: 300;
 		
 		vertical-align: text-bottom;
 
-		span {
+		p {
 			font-size: 1rem;
 			color: #707070;
 			margin-right: 1rem;
-
+			margin-bottom: 0.5rem;
 		}
 		
 		input {

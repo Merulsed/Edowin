@@ -28,7 +28,7 @@ body, html {
   background-color: #202224;
   height: 100%;
   min-height: 100%;
-  width: 100px;
+  width: 3rem;
   overflow-x: hidden;
   overflow-y: scroll;
   z-index: 1000;
@@ -48,14 +48,15 @@ body, html {
     .sidebar .menu ::-webkit-scrollbar {
       display: none; }
   .sidebar .menu li {
-    display: block; }
+    display: block;
+    position: relative; }
   .sidebar .menu li a {
     display: block;
     text-decoration: none;
     color: #FFFFFF;
     font-size: 1rem;
     font-weight: 300;
-    padding: 0.75rem 0 0.75rem 1.6rem;
+    padding: 0.75rem 0 0.75rem 3rem;
     border-top: 1px solid #3C3F42;
     white-space: nowrap;
     -webkit-transition: background-color 100ms ease-in-out;
@@ -67,6 +68,13 @@ body, html {
   .sidebar .menu li a:hover {
     cursor: pointer;
     background-color: #2E516B; }
+  .sidebar .menu li img {
+    position: absolute;
+    display: inline-block;
+    height: 2rem;
+    top: 50%;
+    margin-top: -1rem;
+    left: 0.5rem; }
   .sidebar .acerca-de {
     background-color: inherit;
     margin: 1rem auto 4rem; }
@@ -105,14 +113,15 @@ body, html {
     font-weight: 300;
     padding: 1rem 0; }
   .not-sidebar .inputbox {
-    margin: 0.4rem 0;
+    margin: 1rem 0;
     font-family: "Lato", "Segoe UI", "Helvetica Neue", sans-serif;
     font-weight: 300;
     vertical-align: text-bottom; }
-    .not-sidebar .inputbox span {
+    .not-sidebar .inputbox p {
       font-size: 1rem;
       color: #707070;
-      margin-right: 1rem; }
+      margin-right: 1rem;
+      margin-bottom: 0.5rem; }
     .not-sidebar .inputbox input {
       font-size: 1rem;
       display: inline-block;
