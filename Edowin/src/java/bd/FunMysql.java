@@ -22,7 +22,7 @@ public class FunMysql {
     public FunMysql conectar() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String BaseDeDatos = "jdbc:mysql://localhost/?user=root&password=''";
+            String BaseDeDatos = "jdbc:mysql://localhost/edowin?user=root&password=n0m3l0s3";
             setCon(DriverManager.getConnection(BaseDeDatos));
             if(getCon() != null){
                 System.out.println("Conexion Exitosa!");
@@ -55,19 +55,21 @@ public class FunMysql {
             return false;
         }        return true;
     }
-    
+   
+    //Funcion de altas de usuario
     public boolean altaUsuario(Usuario user){
         String UserName = user.getUsername();
         String Password = user.getPassword();
-        String Mail = user.getPassword();
+        String Mail = user.getMail();
         String Nombre = user.getNombre();
         String ApellidoP = user.getApellidoP();
         String ApellidoM = user.getApellidoM();
         boolean EsAdmin = user.getEsAdmin();
         
         try{
+            //INSERT INTO Usuario (username, password, mail, nombre, esAdmin) VALUES ('ChuckNorris', 'clasico', 'yang.silva.neri@gmail.com', 'Chuck Norris', true);
             Statement sentencia = getCon().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
-            sentencia.executeQuery("INSERT INTO Usuario (username,password,mail,apellidop,apellidom,esAdmin) VALUES ('"+UserName+"','"+Password+"','"+Mail+"','"+Nombre+"','"+ApellidoP+"','"+ApellidoM+"','"+EsAdmin+"')");
+            sentencia.executeUpdate("INSERT INTO Usuario (username,password,mail,nombre,apellidoP,apellidoM,esAdmin) VALUES ('"+UserName+"','"+Password+"','"+Mail+"','"+Nombre+"','"+ApellidoP+"','"+ApellidoM+"','"+EsAdmin+"')");
             sentencia.close();
         }
         catch(SQLException e){
@@ -75,5 +77,17 @@ public class FunMysql {
             return false;
         }
         return true;
+    }
+    
+    //Funcion de consulta usuarios (todos los usuarios)
+    public ResultSet consultar() {
+        ResultSet resultado;
+        try {
+            Statement sentencia = getCon().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+            resultado = sentencia.executeQuery("SELECT * FROM Usuario");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }        return resultado;
     }
 }

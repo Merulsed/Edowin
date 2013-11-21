@@ -1,5 +1,5 @@
-CREATE DATABASE eduwin;
-USE eduwin;
+CREATE DATABASE edowin;
+USE edowin;
 
 CREATE TABLE Usuario (
 	ID INT NOT NULL AUTO_INCREMENT,
@@ -9,7 +9,7 @@ CREATE TABLE Usuario (
 	nombre VARCHAR(45) NOT NULL,
 	apellidoP VARCHAR(45) NOT NULL,
 	apellidoM VARCHAR(45) NOT NULL,
-	esAdmin BOOLEAN NOT NULL,
+	esAdmin VARCHAR(45) NOT NULL,
 	ultimoAcceso DATETIME,
 	PRIMARY KEY (ID)
 );

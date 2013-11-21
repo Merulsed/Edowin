@@ -22,7 +22,8 @@
 	Usuario user = new Usuario(UserName,Password,Mail,Nombre,ApellidoP,ApellidoM,EsAdmin);
         FunMysql con = new FunMysql();
         con.conectar();
-        con.altaUsuario(user);
+        boolean hola = con.altaUsuario(user);
+        
         
 %>
 <html>
@@ -31,6 +32,14 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>
+            <%
+                if(hola == true)
+                    out.print("Usuario registrado con exito");
+                else
+                    out.print("Fallo al registrar usuario");
+                
+            %>
+        </h1>
     </body>
 </html>
