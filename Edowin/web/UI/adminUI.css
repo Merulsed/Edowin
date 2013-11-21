@@ -94,6 +94,7 @@ body, html {
   float: right;
   width: 100%;
   padding-left: 2rem;
+  min-height: 100%;
   background-color: #f0f0f0;
   background-image: url("img/Golden Gate.jpg");
   background-size: cover;
@@ -103,16 +104,28 @@ body, html {
     font-size: 3rem;
     font-weight: 300;
     padding: 1rem 0; }
-  .not-sidebar input {
-    font-size: 1rem;
-    background-color: #F7F7F7;
-    padding: 0.4rem 0.6rem;
+  .not-sidebar .inputbox {
+    margin: 0.4rem 0;
     font-family: "Lato", "Segoe UI", "Helvetica Neue", sans-serif;
     font-weight: 300;
-    color: #707070;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
-    border-radius: 4px;
-    border: 1px solid #D0D0D0; }
+    vertical-align: text-bottom; }
+    .not-sidebar .inputbox span {
+      font-size: 1rem;
+      color: #707070;
+      margin-right: 1rem; }
+    .not-sidebar .inputbox input {
+      font-size: 1rem;
+      display: inline-block;
+      background-color: #F7F7F7;
+      font-family: "Lato", "Segoe UI", "Helvetica Neue", sans-serif;
+      font-weight: 300;
+      padding: 0.4rem 0.6rem;
+      color: #707070;
+      border: 1px solid #D0D0D0;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      -ms-border-radius: 4px;
+      -o-border-radius: 4px;
+      border-radius: 4px; }
+    .not-sidebar .inputbox input:focus {
+      border: 1px solid #00BFFF; }
