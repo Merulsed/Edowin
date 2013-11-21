@@ -1,0 +1,36 @@
+<%-- 
+    Document   : paltaUsuario
+    Created on : 21/11/2013, 12:02:16 AM
+    Author     : YangEnrique
+--%>
+
+<%@page import="bd.FunMysql"%>
+<%@page import="objetos.Usuario"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+
+<%
+	//Aqui se procesan las altas
+	String UserName = request.getParameter("UserName");
+	String Password = request.getParameter("Password");
+	String Mail = request.getParameter("Mail");
+	String Nombre = request.getParameter("Nombre");
+	String ApellidoP = request.getParameter("ApellidoP");
+	String ApellidoM = request.getParameter("ApellidoM");
+	boolean EsAdmin = Boolean.parseBoolean(request.getParameter("EsAdmin"));
+
+	Usuario user = new Usuario(UserName,Password,Mail,Nombre,ApellidoP,ApellidoM,EsAdmin);
+        FunMysql con = new FunMysql();
+        con.conectar();
+        con.altaUsuario(user);
+        
+%>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <h1>Hello World!</h1>
+    </body>
+</html>

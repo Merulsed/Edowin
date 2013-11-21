@@ -6,6 +6,8 @@
 
 package objetos;
 
+import java.util.Date;
+
 /**
  *
  * @author YangEnrique
@@ -19,9 +21,9 @@ public class Usuario {
     private String ApellidoP;
     private String ApellidoM;
     private boolean EsAdmin;
-    //private Date UltimoAcceso;
+    private Date UltimoAcceso;
     
-    /*public Usuario(String Username,String Password, String Mail, String Nombre, String ApellidoP, String ApellidoM, boolean EsAdmin){
+    public Usuario(String Username,String Password, String Mail, String Nombre, String ApellidoP, String ApellidoM, boolean EsAdmin){
         this.Username = Username;
         this.Password = Password;
         this.Mail = Mail;
@@ -29,7 +31,7 @@ public class Usuario {
         this.ApellidoP = ApellidoP;
         this.ApellidoM = ApellidoM;
         this.EsAdmin = EsAdmin;
-    }*/
+    }
     
     public int getID(){
         return ID;
@@ -95,11 +97,11 @@ public class Usuario {
         this.EsAdmin = EsAdmin;
     }
 
-    /*public Date getUltimoAcceso() {
+    public Date getUltimoAcceso() {
         return UltimoAcceso;
     }
 
     public void setUltimoAcceso(Date UltimoAcceso) {
         this.UltimoAcceso = UltimoAcceso;
-    }*/
+    }
 }
