@@ -80,7 +80,7 @@ public class FunMysql {
     }
     
     //Funcion de consulta usuarios (todos los usuarios)
-    public ResultSet consultar() {
+    public ResultSet consultarUsuarios() {
         ResultSet resultado;
         try {
             Statement sentencia = getCon().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);

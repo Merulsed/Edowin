@@ -4,6 +4,7 @@
     Author     : YangEnrique
 --%>
 
+<%@page import="java.sql.ResultSet"%>
 <%@page import="bd.FunMysql"%>
 <%@page import="objetos.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -37,9 +38,9 @@
                 if(hola == true)
                     out.print("Usuario registrado con exito");
                 else
-                    out.print("Fallo al registrar usuario");
-                
+                    out.print("Fallo al registrar usuario");             
             %>
+            <a href="index.jsp">regresar</a>
         </h1>
     </body>
 </html>
