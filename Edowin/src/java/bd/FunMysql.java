@@ -119,28 +119,28 @@ public class FunMysql {
     }
     
     //Fucnion de consulta de Usuario por parametros
-    public ResultSet consultaUsuarioPor(String campo, String buscador){
+    public ResultSet consultaUsuarioPor(String buscador, String valor){
         
         ResultSet resultado;
         try{
             Statement sentencia = getCon().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
-            if(campo.equals("User Name")){
-                resultado = sentencia.executeQuery("SELECT * FROM Usuario WHERE username = '"+buscador+"'");
+            if(buscador.equals("User Name")){
+                resultado = sentencia.executeQuery("SELECT * FROM Usuario WHERE username = '"+valor+"'");
                 return resultado;
-            }else if(campo.equals("Mail")){
-                resultado = sentencia.executeQuery("SELECT * FROM Usuario WHERE mail = '"+buscador+"'");
+            }else if(buscador.equals("Mail")){
+                resultado = sentencia.executeQuery("SELECT * FROM Usuario WHERE mail = '"+valor+"'");
                 return resultado;
-            }else if(campo.equals("Nombre")){
-                resultado = sentencia.executeQuery("SELECT * FROM Usuario WHERE nombre = '"+buscador+"'");
+            }else if(buscador.equals("Nombre")){
+                resultado = sentencia.executeQuery("SELECT * FROM Usuario WHERE nombre = '"+valor+"'");
                 return resultado;
-            }else if(campo.equals("Apellido Paterno")){
-                resultado = sentencia.executeQuery("SELECT * FROM Usuario WHERE apellidop = '"+buscador+"'");
+            }else if(buscador.equals("Apellido Paterno")){
+                resultado = sentencia.executeQuery("SELECT * FROM Usuario WHERE apellidop = '"+valor+"'");
                 return resultado;
-            }else if(campo.equals("Apellido Materno")){
-                resultado = sentencia.executeQuery("SELECT * FROM Usuario WHERE apellidoM = '"+buscador+"'");
+            }else if(buscador.equals("Apellido Materno")){
+                resultado = sentencia.executeQuery("SELECT * FROM Usuario WHERE apellidoM = '"+valor+"'");
                 return resultado;
-            }else if(campo.equals("Es Administrador")){
-                resultado = sentencia.executeQuery("SELECT * FROM Usuario WHERE esAdmin = '"+buscador+"'");
+            }else if(buscador.equals("Es Administrador")){
+                resultado = sentencia.executeQuery("SELECT * FROM Usuario WHERE esAdmin = '"+valor+"'");
                 return resultado;
             }else{
                 return null;

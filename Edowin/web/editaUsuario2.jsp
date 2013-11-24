@@ -4,12 +4,18 @@
     Author     : YangEnrique
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="bd.FunMysql"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <% 
+    //el objecto con se debe pasar con sessiones miesntars estara asi
   String buscador = request.getParameter("buscador");
   String valor = request.getParameter("valor");
-  
+  FunMysql con = new FunMysql();
+  con.conectar();
+  ResultSet resultados = con.consultaUsuarioPor(buscador, valor);
+
 %>
 <html>
     <head>
@@ -17,21 +23,54 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <h1>Usuarios Encontrados con los siguientes parametros</h1>
+        <form method ="POST" action="editaUsuario3.jsp">
+        <table border="1">
+            <tr>
+                <td>User ID</td>
+                <td>Username</td>
+                <td>Mail</td>
+                <td>Nombre</td>
+                <td>Apellido Paterno</td>
+                <td>Apellido Materno</td>
+                <td>Es Admmin</td>
+                <td>Editar</td>
+            </tr>
         <%
-            out.print(buscador);
+            try{
+                while (resultados.next()) {
+                        out.print("<tr>");
+                            out.print("<td>");
+                                out.print(resultados.getBigDecimal("ID"));
+                            out.print("</td>");
+                            out.print("<td>");
+                                out.print(resultados.getString("username"));
+                            out.print("</td>");
+                            out.print("<td>");
+                                out.print(resultados.getString("mail"));
+                            out.print("</td>");
+                            out.print("<td>");
+                                out.print(resultados.getString("nombre"));
+                            out.print("</td>");
+                            out.print("<td>");
+                                out.print(resultados.getString("apellidoP"));
+                            out.print("</td>");
+                            out.print("<td>");
+                                out.print(resultados.getString("apellidoM"));
+                            out.print("</td>");
+                            out.print("<td>");
+                                out.print(resultados.getString("esAdmin"));
+                            out.print("</td>");
+                            %>
+                            <td><input type="radio" name="ID" value="<% out.print(resultados.getBigDecimal("ID")); %>"></td>
+                            <%
+                        out.print("</tr>");
+                    }
+            } catch(Exception e){
+                e.printStackTrace();
+            }
         %>
-        <h1>Editacion de usuario</h1>
-        <form method = "POST" action = "paltaUsuario.jsp">
-		User Name<input type="text" name="UserName"><br>
-		Password<input type="text" name="Password"><br>
-		Mail<input type="text" name="Mail"><br>
-		Nombre<input type="text" name="Nombre"><br>
-		Apellido Paterno<input type="text" name="ApellidoP"><br>
-		Apellido Materno<input type="text" name="ApellidoM"><br>
-		Es Admin<br>
-		Si<input type="radio" name="EsAdmin" value="true"><br>
-		No<input type="radio" name="EsAdmin" value="false"><br>
-		<input type="submit">
+        <input type="submit">
 	</form>
     </body>
 </html>
