@@ -16,7 +16,6 @@
     FunMysql con = new FunMysql();
     con.conectar();
     ResultSet resultados = con.consultaUsuarioPor("ID", valor);
-    Usuario user = new Usuario();
     
 %>
 <html>
@@ -26,5 +25,16 @@
     </head>
     <body>
         <h1>Edicion de Usuario</h1>
+        <form action="" method="POST">
+            
+            <input typr="text" name="nombre"><br>
+            <input type ="taxt" name="mail"><br>
+            <input type="text" name="nombre"><br>
+            <input type="text" name="apelldioP"><br>
+            <input type="text" name="apellidoM"><br>
+            <input type="radio" name="esAdmin" value="true"><br>
+            <input type="radio" name="esAdmin" value="false"><br>
+            <input type="submit">
+        </form>
     </body>
 </html>
