@@ -72,33 +72,11 @@ public class FunMysql {
     }
     
     //Funciond de cambios en usuarios
-    public boolean updateUsuario(String campo, Usuario user){
+    public boolean updateUsuario(Usuario user){
         try{
             Statement sentencia = getCon().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
-            if(campo.equals("User Name")){
-                sentencia.executeUpdate("UPDATE Usuario SET username = '"+user.getUsername()+"' WHERE ID = '"+user.getID()+"'");
-                return true;
-            }else if(campo.equals("Password")){
-                sentencia.executeUpdate("UPDATE Usuario SET password = '"+user.getPassword()+"' WHERE ID = '"+user.getID()+"'");
-                return true;
-            }else if(campo.equals("Mail")){
-                sentencia.executeUpdate("UPDATE Usuario SET mail = '"+user.getMail()+"' WHERE ID = '"+user.getID()+"'");
-                return true;
-            }else if(campo.equals("Nombre")){
-                sentencia.executeUpdate("UPDATE Usuario SET nombre = '"+user.getNombre()+"' WHERE ID = '"+user.getID()+"'");
-                return true;
-            }else if(campo.equals("Apellido Paterno")){
-                sentencia.executeUpdate("UPDATE Usuario SET apellidoP = '"+user.getApellidoP()+"' WHERE ID = '"+user.getID()+"'");
-                return true;
-            }else if(campo.equals("Apellido Materno")){
-                sentencia.executeUpdate("UPDATE Usuario SET apellidoM = '"+user.getApellidoM()+"' WHERE ID = '"+user.getID()+"'");
-                return true;
-            }else if(campo.equals("Es Administrador")){
-                sentencia.executeUpdate("UPDATE Usuario SET esAdmin = '"+user.getEsAdmin()+"' WHERE ID = '"+user.getID()+"'");
-                return true;
-            }else{
-                return false;
-            }
+            sentencia.executeUpdate("UPDATE Usuario SET username='"+user.getUsername()+"', mail='"+user.getMail()+"', nombre='"+user.getNombre()+"', apellidoP='"+user.getApellidoP()+"', apellidoM='"+user.getApellidoM()+"', esAdmin='"+user.getEsAdmin()+"' WHERE username='"+user.getUsername()+"'");
+            return true;
         }
         catch(SQLException e){
             e.printStackTrace();
@@ -124,7 +102,10 @@ public class FunMysql {
         ResultSet resultado;
         try{
             Statement sentencia = getCon().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
-            if(buscador.equals("User Name")){
+            if(buscador.equals("ID")){
+                resultado = sentencia.executeQuery("SELECT * FROM Usuario WHERE ID = '"+valor+"'");
+                return resultado;
+            } else if(buscador.equals("User Name")){
                 resultado = sentencia.executeQuery("SELECT * FROM Usuario WHERE username = '"+valor+"'");
                 return resultado;
             }else if(buscador.equals("Mail")){

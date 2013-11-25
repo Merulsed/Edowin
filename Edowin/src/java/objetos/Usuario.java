@@ -23,9 +23,8 @@ public class Usuario {
     private boolean EsAdmin;
     private Date UltimoAcceso;
     
-    public Usuario(String Username,String Password, String Mail, String Nombre, String ApellidoP, String ApellidoM, boolean EsAdmin){
+    public Usuario(String Username, String Mail, String Nombre, String ApellidoP, String ApellidoM, boolean EsAdmin){
         this.Username = Username;
-        this.Password = Password;
         this.Mail = Mail;
         this.Nombre = Nombre;
         this.ApellidoP = ApellidoP;

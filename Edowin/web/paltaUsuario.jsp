@@ -20,7 +20,8 @@
 	String ApellidoM = request.getParameter("ApellidoM");
 	boolean EsAdmin = Boolean.parseBoolean(request.getParameter("EsAdmin"));
 
-	Usuario user = new Usuario(UserName,Password,Mail,Nombre,ApellidoP,ApellidoM,EsAdmin);
+	Usuario user = new Usuario(UserName,Mail,Nombre,ApellidoP,ApellidoM,EsAdmin);
+        user.setPassword(Password);
         FunMysql con = new FunMysql();
         con.conectar();
         boolean hola = con.altaUsuario(user);
