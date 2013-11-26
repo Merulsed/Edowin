@@ -84,6 +84,18 @@ public class FunMysql {
         }
     }
     
+    //Funcion de eliminacion de usuarios
+    public boolean deleteUsuario(Usuario user){
+        try{
+            Statement sentencia = getCon().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+            sentencia.executeQuery("DELETE FROM Usuario WHERE ID = '"+user.getID()+"'");
+            return true;
+        } catch(SQLException e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
     //Funcion de consulta usuarios (todos los usuarios)
     public ResultSet consultarUsuarios() {
         ResultSet resultado;
