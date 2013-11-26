@@ -1,20 +1,35 @@
-<%-- 
-    Document   : index
-    Created on : 20/11/2013, 11:48:32 PM
-    Author     : YangEnrique
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+
+<!DOCTYPE>
+
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Index temporal</h1>
-        <a href="altaUsuario.jsp">Alta Usuario</a>
-        <a href="consultaUsuarios.jsp">Consulta Usuarios</a>
-        <a href="editaUsuario.jsp">Edita usuario</a>
-    </body>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+
+	<link rel="stylesheet" type="text/css" href="front-end/adminUI.css">
+	<script type="text/javascript" src="front-end/jquery-2.0.3.min.js"></script>
+	<script type="text/javascript" src="front-end/eduwin.js"></script>
+</head>
+<body>
+
+	<div id="wrapper" class="loginwrapper">
+		<div class="login">
+			<h1>Inicia Sesión</h1>
+			<form class="width1" method="POST" action="index2.jsp">
+				<div class="inputbox">
+					<input type="text" placeholder="Nombre de Usuario" name="username">
+				</div>
+				<br>
+				<div class="inputbox">
+					<input type="password" placeholder="Password" name="password">
+				</div>
+				<div class="inputbox">
+					<input type="submit" value="Entrar">
+				</div>
+			</form>
+		</div>
+	</div>
+
+</body>
 </html>

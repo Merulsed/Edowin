@@ -36,7 +36,7 @@ public class Usuario {
         return ID;
     }
     
-    public void getID(int ID){
+    public void setID(int ID){
         this.ID = ID;
     }
 
