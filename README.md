@@ -1,3 +1,6 @@
 Edowin
 ======
 Repositorio Archivos Adminitrativos
+
+
+TE ODIO GITHUB CONCHATUMADRE PORQUE NO ME DETECTAS LOS CAMBIOS LPTMPQTP
