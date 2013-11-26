@@ -68,18 +68,15 @@ body, html {
 .sidebar {
 	position: relative;
 	display: inline-block;
-
 	float: left;
 
 	background-color: $grisAzulObscuro;
 	height: 100%;
 	min-height: 100%;
 
-
 	width: $sidebarIconBox;
 
-	overflow-x: hidden;
-	overflow-y: scroll;
+	overflow: hidden;
 	z-index: 1000;
 
 	@include transition(width, 400ms, cubic-bezier(.90, 0, .30, 1));
