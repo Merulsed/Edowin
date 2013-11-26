@@ -1,22 +1,35 @@
-<%-- 
-    Document   : login
-    Created on : 25/11/2013, 10:05:22 AM
-    Author     : YangEnrique
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+
+<!DOCTYPE>
+
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Incio de sesion</h1>
-        <form method="POST" action="">
-            Nombre de Usuario<input type="text" name="username"><br>
-            Password<input type="password" nanme="password"><br>
-            <input type="submit"><br>
-        </form>
-    </body>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+
+	<link rel="stylesheet" type="text/css" href="adminUI.css">
+	<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+	<script type="text/javascript" src="js/eduwin.js"></script>
+</head>
+<body>
+
+	<div id="wrapper" class="loginwrapper">
+		<div class="login">
+			<h1>Inicia Sesión</h1>
+			<form class="width1" method="POST" action="">
+				<div class="inputbox">
+					<input type="text" placeholder="Nombre de Usuario" name="username">
+				</div>
+				<br>
+				<div class="inputbox">
+					<input type="password" placeholder="Password" name="password">
+				</div>
+				<div class="inputbox">
+					<input type="submit" value="Entrar">
+				</div>
+			</form>
+		</div>
+	</div>
+
+</body>
 </html>
