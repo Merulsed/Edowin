@@ -7,9 +7,9 @@
 	<meta charset="utf-8">
 	<title></title>
 
-	<link rel="stylesheet" type="text/css" href="front-end/adminUI.css">
-	<script type="text/javascript" src="front-end/jquery-2.0.3.min.js"></script>
-	<script type="text/javascript" src="front-end/eduwin.js"></script>
+	<link rel="stylesheet" type="text/css" href="adminUI.css">
+	<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+	<script type="text/javascript" src="js/eduwin.js"></script>
 </head>
 <body>
 
@@ -18,31 +18,31 @@
 			<p class="logo">Eduwin</p>
 			<ul class="menu">
 				<li><a href="">
-					<img src="front-end/img/menu.adduser.png">
+					<img src="img/menu.adduser.png">
 					Crear Usuario
 				</a></li>
 				<li><a href="">
-					<img src="front-end/img/menu.edituser.png">
+					<img src="img/menu.edituser.png">
 					Administrar Usuarios
 				</a></li>
 				<li><a href="">
-					<img src="front-end/img/menu.addoc.png">
+					<img src="img/menu.addoc.png">
 					Crear Documento
 				</a></li>
 				<li><a href="">
-					<img src="front-end/img/menu.viewdocs.png">
+					<img src="img/menu.viewdocs.png">
 					Administrar Documentos
 				</a></li>
 				<li><a href="">
-					<img src="front-end/img/menu.settings.png">
+					<img src="img/menu.settings.png">
 					Configuración
 				</a></li>
 				<li><a href="">
-					<img src="front-end/img/menu.close.png">
+					<img src="img/menu.close.png">
 					Cerrar Sesión
 				</a></li>
 				<li><a href="">
-					<img src="front-end/img/menu.help.png">
+					<img src="img/menu.help.png">
 					Ayuda
 				</a></li>
 			</ul>
@@ -81,7 +81,7 @@
 					<input type="text" placeholder="Nombre" name="ApellidoM">
 				</div>
 				<div class="inputbox">
-					<p>Es Admin</p>
+					<p>Es Administrador?</p>
 					<span>Si</span> <input type="radio" name="EsAdmin" value="true">
 					<span>No</span> <input type="radio" name="EsAdmin" value="false">
 				</div>
