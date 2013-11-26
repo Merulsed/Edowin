@@ -8,8 +8,8 @@
 	<title></title>
 
 	<link rel="stylesheet" type="text/css" href="front-end/adminUI.css">
-	<script type="text/javascript" src="front-end//jquery-2.0.3.min.js"></script>
-	<script type="text/javascript" src="front-end//eduwin.js"></script>
+	<script type="text/javascript" src="front-end/jquery-2.0.3.min.js"></script>
+	<script type="text/javascript" src="front-end/eduwin.js"></script>
 </head>
 <body>
 
