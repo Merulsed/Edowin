@@ -40,7 +40,7 @@
 					<img src="front-end/img/menu.adduser.png">
 					Crear Usuario
 				</a></li>
-				<li><a href="">
+				<li><a href="consultaUsuarios.jsp">
 					<img src="front-end/img/menu.edituser.png">
 					Administrar Usuarios
 				</a></li>
@@ -108,7 +108,10 @@
 									out.print(resultados.getString("apellidoM"));
 								out.print("</div>");
 								out.print("<div class='user esAdmin'>");
-									out.print(resultados.getString("esAdmin"));
+                                                                        if (resultados.getString("esAdmin") == "false")
+                                                                            out.print("Admin");
+                                                                        else
+                                                                            out.print("asd");
 								out.print("</div>");
 							out.print("</div>");
 						}

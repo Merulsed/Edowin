@@ -26,7 +26,7 @@
 					<img src="front-end/img/menu.adduser.png">
 					Crear Usuario
 				</a></li>
-				<li><a href="">
+				<li><a href="consultaUsuarios.jsp">
 					<img src="front-end/img/menu.edituser.png">
 					Administrar Usuarios
 				</a></li>
