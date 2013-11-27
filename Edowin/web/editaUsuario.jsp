@@ -4,6 +4,7 @@
     Author     : YangEnrique
 --%>
 
+<%@page import="objetos.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,10 +13,17 @@
         <title>JSP Page</title>
     </head>
     <body>
+<%
+    String cierto = (String)session.getAttribute("inicio");
+    if(cierto != null){
+         Usuario usuario = (Usuario)session.getAttribute("user");
+%>
+
+
         <h1>Edita un usuario</h1><br>
         <form action="editaUsuario2.jsp" method="POST">
             <select name="buscador">
-                <option>User Name</option><br>
+                <option>User Name</option>
                 <option>Mail</option>
                 <option>Nombre</option>
                 <option>Apellido Paterno</option>
@@ -25,5 +33,13 @@
             <input type="text" name="valor"><br>
             <input type="submit"><br>
         </form>
-    </body>
+<%
+    }else{
+%>
+        Usuario incorrecto
+        <a href="index.jsp">regresar</a>
+<%
+    }
+%>
+</body>
 </html>

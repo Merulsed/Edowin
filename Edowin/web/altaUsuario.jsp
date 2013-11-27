@@ -1,7 +1,7 @@
+<%@page import="objetos.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE>
-
 <html>
 <head>
 	<meta charset="utf-8">
@@ -13,6 +13,11 @@
 </head>
 <body>
 
+<%
+    String cierto = (String)session.getAttribute("inicio");
+    if(cierto != null){
+         Usuario usuario = (Usuario)session.getAttribute("user");
+%>
 	<div id="wrapper">
 		<div class="sidebar">
 			<p class="logo">Eduwin</p>
@@ -93,6 +98,13 @@
 
 		</div>
 	</div>
-
+<%
+    }else{
+%>
+        Usuario incorrecto
+        <a href="index.jsp">regresar</a>
+<%
+    }
+%>
 </body>
 </html>

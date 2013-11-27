@@ -8,7 +8,16 @@
 <%@page import="objetos.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
 <%
+    String cierto = (String)session.getAttribute("inicio");
+    if(cierto != null){
+         Usuario usuario = (Usuario)session.getAttribute("user");
     String username = request.getParameter("username");
     String mail = request.getParameter("mail");
     String nombre = request.getParameter("nombre");
@@ -23,14 +32,17 @@
     con.conectar();
     con.updateUsuario(user);
 %>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
+
         <h1>Exito</h1>
         <% out.print(apellidoP); %>
-        <a href="index.jsp">volver</a>
-    </body>
+        <a href="index2.jsp">volver</a>
+<%
+    }else{
+%>
+        Usuario incorrecto
+        <a href="index.jsp">regresar</a>
+<%
+    }
+%>
+</body>
 </html>

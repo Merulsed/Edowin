@@ -9,7 +9,17 @@
 <%@page import="objetos.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
+<%
+    String cierto = (String)session.getAttribute("inicio");
+    if(cierto != null){
+         Usuario usuario = (Usuario)session.getAttribute("user");
+%>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
 <%
 	//Aqui se procesan las altas
 	String UserName = request.getParameter("UserName");
@@ -28,12 +38,7 @@
         
         
 %>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
+
         <h1>
             <%
                 if(hola == true)
@@ -41,7 +46,15 @@
                 else
                     out.print("Fallo al registrar usuario");             
             %>
-            <a href="index.jsp">regresar</a>
+            <a href="index2.jsp">regresar</a>
         </h1>
-    </body>
+<%
+    }else{
+%>
+        Usuario incorrecto
+        <a href="index.jsp">regresar</a>
+<%
+    }
+%>
+</body>
 </html>

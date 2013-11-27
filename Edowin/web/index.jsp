@@ -1,7 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE>
-
+<%
+    session.setAttribute("inicio", "cierto");
+%>
 <html>
 <head>
 	<meta charset="utf-8">

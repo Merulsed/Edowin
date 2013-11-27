@@ -4,22 +4,28 @@
     Author     : YangEnrique
 --%>
 
+<%@page import="objetos.Usuario"%>
 <%@page import="bd.FunMysql"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%
-    FunMysql con = new FunMysql();
-    con.conectar();
-    ResultSet resultados;
-    resultados = con.consultarUsuarios();
-%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
     <body>
+<%
+    String cierto = (String)session.getAttribute("inicio");
+    if(cierto != null){
+         Usuario usuario = (Usuario)session.getAttribute("user");
+
+    FunMysql con = new FunMysql();
+    con.conectar();
+    ResultSet resultados;
+    resultados = con.consultarUsuarios();
+%>
+
         <h1>Usuarios de la base</h1>
         <table border="1">
             <tr>
@@ -64,5 +70,13 @@
                 }
             %>
         </table>
-    </body>
+<%
+    }else{
+%>
+        Usuario incorrecto
+        <a href="index.jsp">regresar</a>
+<%
+    }
+%>
+</body>
 </html>

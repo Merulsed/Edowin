@@ -4,10 +4,23 @@
     Author     : YangEnrique
 --%>
 
+<%@page import="objetos.Usuario"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="bd.FunMysql"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+<%
+    String cierto = (String)session.getAttribute("inicio");
+    if(cierto != null){
+         Usuario usuario = (Usuario)session.getAttribute("user");
+%>
+
 <% 
     //el objecto con se debe pasar con sessiones miesntars estara asi
   String buscador = request.getParameter("buscador");
@@ -17,12 +30,6 @@
   ResultSet resultados = con.consultaUsuarioPor(buscador, valor);
 
 %>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
         <h1>Usuarios Encontrados con los siguientes parametros</h1>
         <form method ="POST" action="editaUsuario3.jsp">
         <table border="1">
@@ -72,5 +79,13 @@
         %>
         <input type="submit">
 	</form>
-    </body>
+   <%
+    }else{
+%>
+        Usuario incorrecto
+        <a href="index.jsp">regresar</a>
+<%
+    }
+%>
+</body>
 </html>
