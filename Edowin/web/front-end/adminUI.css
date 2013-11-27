@@ -22,6 +22,12 @@ body, html {
   min-width: 100%;
   overflow-x: hidden;
   background-color: #202224;
+
+  
+  background-image: url('img/sw.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 /* Sidebar */
@@ -29,7 +35,7 @@ body, html {
   position: relative;
   display: inline-block;
   float: left;
-  background-color: #202224;
+  /*background-color: #202224;*/
   height: 100%;
   min-height: 100%;
   width: 3rem;
@@ -41,6 +47,8 @@ body, html {
   transition: width 400ms cubic-bezier(0.9, 0, 0.3, 1);
   transition-delay: 0;
   -webkit-transition-delay: 0;
+
+
   /* iconos */
 }
 .sidebar .logo {

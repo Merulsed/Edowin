@@ -22,7 +22,7 @@
          Usuario usuario = (Usuario)session.getAttribute("user");
 
     //el objecto con se debe pasar con sessiones miesntars estara asi
-    String valor = request.getParameter("username");
+    int valor = Integer.parseInt(request.getParameter("ID"));
     vidaFacil facil = new vidaFacil();
     Usuario user = facil.obtenUsuario(valor);
     session.setAttribute("usuarioeditado", user);
@@ -30,6 +30,7 @@
 
         <h1>Edicion de Usuario</h1>
         <form action="editaUsuario4.jsp" method="POST">
+            <input type="text" name="ID" value="<% out.print(valor); %>">
             Nick <input type="text" name="username" value="<% out.print(user.getUsername()); %>"><br>
             Mail<input type ="text" name="mail" value ="<% out.print(user.getMail()); %>"><br>
             Nombre<input type="text" name="nombre" value="<% out.print(user.getNombre()); %>"><br>

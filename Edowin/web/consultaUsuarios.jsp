@@ -84,7 +84,7 @@
 					 --><div class="user esAdmin">Admin</div><!-- 
 				 --></div>
 
-					
+                            <form method="post" action="editaUsuario3.jsp">
 				<%
 					try{
 						while (resultados.next()) {
@@ -108,20 +108,25 @@
 									out.print(resultados.getString("apellidoM"));
 								out.print("</div>");
 								out.print("<div class='user esAdmin'>");
-                                                                        if (resultados.getString("esAdmin") == "false")
+                                                                        if (Boolean.parseBoolean(resultados.getString("esAdmin")) == true)
                                                                             out.print("Admin");
                                                                         else
-                                                                            out.print("asd");
+                                                                            out.print("");
 								out.print("</div>");
-							out.print("</div>");
+                                                                out.print("<div class='user editar'>");
+                                                                    out.print("<input type='radio' name='ID' value='"+resultados.getInt("ID")+"'");
+                                                                out.print("</div>");
+                                                                
+							out.print("</div><br>");
 						}
 					}
 					catch(Exception e){
 						 e.printStackTrace();
 					}
 				%>
-
-
+                                <br><br><br><br>
+                                <input type="submit">
+                            </form>
 
 			</div>
 				

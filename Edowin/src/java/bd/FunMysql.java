@@ -75,7 +75,7 @@ public class FunMysql {
     public boolean updateUsuario(Usuario user){
         try{
             Statement sentencia = getCon().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
-            sentencia.executeUpdate("UPDATE Usuario SET username='"+user.getUsername()+"', mail='"+user.getMail()+"', nombre='"+user.getNombre()+"', apellidoP='"+user.getApellidoP()+"', apellidoM='"+user.getApellidoM()+"', esAdmin='"+user.getEsAdmin()+"' WHERE username='"+user.getUsername()+"'");
+            sentencia.executeUpdate("UPDATE Usuario SET username='"+user.getUsername()+"', mail='"+user.getMail()+"', nombre='"+user.getNombre()+"', apellidoP='"+user.getApellidoP()+"', apellidoM='"+user.getApellidoM()+"', esAdmin='"+user.getEsAdmin()+"' WHERE ID='"+user.getID()+"'");
             return true;
         }
         catch(SQLException e){

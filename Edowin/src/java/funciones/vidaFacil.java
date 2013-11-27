@@ -17,7 +17,7 @@ import objetos.Usuario;
 public class vidaFacil {
     
     //Esta funcion solo sirve tomando en cuanta que no hay username repetidos
-    public Usuario obtenUsuario(String username2){
+    public Usuario obtenUsuario(int ID2){
         int ID=0;
         String username=null;
         String password=null;
@@ -28,7 +28,7 @@ public class vidaFacil {
         boolean esAdmin=false;
         FunMysql con = new FunMysql();
         con.conectar();
-        ResultSet resultado = con.consultaUsuarioPor("User Name", username2);
+        ResultSet resultado = con.consultaUsuarioPor("ID", String.valueOf(ID2));
         try{
             while(resultado.next()){
                 System.out.println(resultado.getInt("ID"));

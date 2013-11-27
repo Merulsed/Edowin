@@ -18,6 +18,7 @@
     String cierto = (String)session.getAttribute("inicio");
     if(cierto != null){
          Usuario usuario = (Usuario)session.getAttribute("user");
+    int ID = Integer.parseInt(request.getParameter("ID"));
     String username = request.getParameter("username");
     String mail = request.getParameter("mail");
     String nombre = request.getParameter("nombre");
@@ -27,7 +28,9 @@
     
     //El suaro para se correcto deberia ser creado en la clase anterior y ser pasado
     // con sessions pero ya se vera si da tiempo lol
+
     Usuario user = new Usuario(username,mail,nombre,apellidoP,apellidoM,esAdmin);
+    user.setID(ID);
     FunMysql con = new FunMysql();
     con.conectar();
     con.updateUsuario(user);
