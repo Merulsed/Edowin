@@ -34,7 +34,6 @@
 %>
 
         <h1>Exito</h1>
-        <% out.print(apellidoP); %>
         <a href="index2.jsp">volver</a>
 <%
     }else{

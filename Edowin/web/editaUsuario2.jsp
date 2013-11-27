@@ -19,10 +19,7 @@
     String cierto = (String)session.getAttribute("inicio");
     if(cierto != null){
          Usuario usuario = (Usuario)session.getAttribute("user");
-%>
 
-<% 
-    //el objecto con se debe pasar con sessiones miesntars estara asi
   String buscador = request.getParameter("buscador");
   String valor = request.getParameter("valor");
   FunMysql con = new FunMysql();
@@ -69,7 +66,7 @@
                                 out.print(resultados.getString("esAdmin"));
                             out.print("</td>");
                             %>
-                            <td><input type="radio" name="ID" value="<% out.print(resultados.getBigDecimal("ID")); %>"></td>
+                            <td><input type="radio" name="username" value="<% out.print(resultados.getString("username")); %>"></td>
                             <%
                         out.print("</tr>");
                     }
