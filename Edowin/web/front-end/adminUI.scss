@@ -229,7 +229,6 @@ body, html {
 			font-size: 1rem;
 			display: inline-block;
 			width: 100%;
-			background-color: #F7F7F7;
 			font-family: $fontStack;
 			font-weight: 300;
 
@@ -245,6 +244,10 @@ body, html {
 			border: 1px solid #00BFFF;
 			box-shadow: 0 0 1px 1px #AAE9ED;
 		}
+
+		input[type="text"] {
+			background-color: #F7F7F7;
+		} 
 
 		input[type="submit"] {
 			display: inline-block;

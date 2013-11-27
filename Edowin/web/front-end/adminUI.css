@@ -159,7 +159,6 @@ body, html {
   font-size: 1rem;
   display: inline-block;
   width: 100%;
-  background-color: #F7F7F7;
   font-family: "Lato", "Segoe UI", "Helvetica Neue", sans-serif;
   font-weight: 300;
   padding: 0.6rem;
@@ -178,6 +177,9 @@ body, html {
 .not-sidebar .inputbox input:focus {
   border: 1px solid #00BFFF;
   box-shadow: 0 0 1px 1px #AAE9ED;
+}
+.not-sidebar .inputbox input[type="text"] {
+  background-color: #F7F7F7;
 }
 .not-sidebar .inputbox input[type="submit"] {
   display: inline-block;
