@@ -1,82 +1,141 @@
 <%-- 
-    Document   : consultaUsuarios
-    Created on : 21/11/2013, 09:08:59 AM
-    Author     : YangEnrique
+	Document   : consultaUsuarios
+	Created on : 21/11/2013, 09:08:59 AM
+	Author     : YangEnrique
 --%>
 
 <%@page import="objetos.Usuario"%>
 <%@page import="bd.FunMysql"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+
+<!DOCTYPE>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-<%
-    String cierto = (String)session.getAttribute("inicio");
-    if(cierto != null){
-         Usuario usuario = (Usuario)session.getAttribute("user");
+<head>
+	<meta charset="utf-8">
+	<title>Lista de usuarios</title>
 
-    FunMysql con = new FunMysql();
-    con.conectar();
-    ResultSet resultados;
-    resultados = con.consultarUsuarios();
+	<link rel="stylesheet" type="text/css" href="front-end/adminUI.css">
+	<script type="text/javascript" src="front-end/jquery-2.0.3.min.js"></script>
+	<script type="text/javascript" src="front-end/eduwin.js"></script>
+</head>
+<body>
+
+<%
+	String cierto = (String)session.getAttribute("inicio");
+	if(cierto != null){
+		 Usuario usuario = (Usuario)session.getAttribute("user");
+
+	FunMysql con = new FunMysql();
+	con.conectar();
+	ResultSet resultados;
+	resultados = con.consultarUsuarios();
 %>
 
-        <h1>Usuarios de la base</h1>
-        <table border="1">
-            <tr>
-                <td>User ID</td>
-                <td>Username</td>
-                <td>Mail</td>
-                <td>Nombre</td>
-                <td>Apellido Paterno</td>
-                <td>Apellido Materno</td>
-                <td>Es Admmin</td>
-            </tr>
-            <%
-                try{
-                    while (resultados.next()) {
-                        out.print("<tr>");
-                            out.print("<td>");
-                                out.print(resultados.getBigDecimal("ID"));
-                            out.print("</td>");
-                            out.print("<td>");
-                                out.print(resultados.getString("username"));
-                            out.print("</td>");
-                            out.print("<td>");
-                                out.print(resultados.getString("mail"));
-                            out.print("</td>");
-                            out.print("<td>");
-                                out.print(resultados.getString("nombre"));
-                            out.print("</td>");
-                            out.print("<td>");
-                                out.print(resultados.getString("apellidoP"));
-                            out.print("</td>");
-                            out.print("<td>");
-                                out.print(resultados.getString("apellidoM"));
-                            out.print("</td>");
-                            out.print("<td>");
-                                out.print(resultados.getString("esAdmin"));
-                            out.print("</td>");
-                        out.print("</tr>");
-                    }
-                }
-                catch(Exception e){
-                     e.printStackTrace();
-                }
-            %>
-        </table>
+	<div id="wrapper">
+		<div class="sidebar">
+			<p class="logo">Eduwin</p>
+			<ul class="menu">
+				<li><a href="altaUsuario.jsp">
+					<img src="front-end/img/menu.adduser.png">
+					Crear Usuario
+				</a></li>
+				<li><a href="">
+					<img src="front-end/img/menu.edituser.png">
+					Administrar Usuarios
+				</a></li>
+				<li><a href="">
+					<img src="front-end/img/menu.addoc.png">
+					Crear Documento
+				</a></li>
+				<li><a href="">
+					<img src="front-end/img/menu.viewdocs.png">
+					Administrar Documentos
+				</a></li>
+				<li><a href="">
+					<img src="front-end/img/menu.settings.png">
+					Configuración
+				</a></li>
+				<li><a href="">
+					<img src="front-end/img/menu.close.png">
+					Cerrar Sesión
+				</a></li>
+				<li><a href="">
+					<img src="front-end/img/menu.help.png">
+					Ayuda
+				</a></li>
+			</ul>
+			<p class="acerca-de"><a href="">Edowin ESCOM 2013</a></p>
+		</div>
+
+		<div class="not-sidebar">
+
+			<h1>Lista de usuarios</h1>
+
+			<div class="listaUsuarios">
+			
+				<div class="row header">
+					<div class="user id">User ID</div><!-- 
+					 --><div class="user username">Username</div><!-- 
+					 --><div class="user mail">Mail</div><!-- 
+					 --><div class="user nombre">Nombre</div><!-- 
+					 --><div class="user apellidoP">Ap. Paterno</div><!-- 
+					 --><div class="user apellidoM">Ap. Materno</div><!-- 
+					 --><div class="user esAdmin">Admin</div><!-- 
+				 --></div>
+
+					
+				<%
+					try{
+						while (resultados.next()) {
+							out.print("<div class='row not-header'>");
+								out.print("<div class='user id'>");
+									out.print(resultados.getBigDecimal("ID"));
+								out.print("</div>");
+								out.print("<div class='user username'>");
+									out.print(resultados.getString("username"));
+								out.print("</div>");
+								out.print("<div class='user mail'>");
+									out.print(resultados.getString("mail"));
+								out.print("</div>");
+								out.print("<div class='user nombre'>");
+									out.print(resultados.getString("nombre"));
+								out.print("</div>");
+								out.print("<div class='user apellidoP'>");
+									out.print(resultados.getString("apellidoP"));
+								out.print("</div>");
+								out.print("<div class='user apellidoM'>");
+									out.print(resultados.getString("apellidoM"));
+								out.print("</div>");
+								out.print("<div class='user esAdmin'>");
+									out.print(resultados.getString("esAdmin"));
+								out.print("</div>");
+							out.print("</div>");
+						}
+					}
+					catch(Exception e){
+						 e.printStackTrace();
+					}
+				%>
+
+
+
+			</div>
+				
+
+						
+
+		</div>
+	</div>
+
+
 <%
-    }else{
+	}else{
 %>
-        Usuario incorrecto
-        <a href="index.jsp">regresar</a>
+		Usuario incorrecto
+		<a href="index.jsp">regresar</a>
 <%
-    }
+	}
 %>
 </body>
 </html>

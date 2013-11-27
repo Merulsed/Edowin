@@ -398,3 +398,58 @@ body, html {
 }
 
 
+
+
+
+.listaUsuarios {
+
+	.row {
+		display: inline-block;
+		width: auto;
+		white-space: nowrap;
+
+	}
+
+	.user {
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+
+	margin-right: 1rem;
+	padding: 1rem 0;
+	}
+
+
+	.header {
+
+		color: #606060;
+	}
+	.not-header {
+	}
+
+
+
+	.id {
+		width: 3rem;
+		text-align: right;
+	}
+	.username {
+		width: 8rem;
+	}
+	.mail {
+		width: 16rem;
+	}
+	.nombre {
+		width: 8rem;
+	}
+	.apellidoP {
+		width: 8rem;
+	}
+	.apellidoM {
+		width: 8rem;
+	}
+	.esAdmin {
+		width: 4rem;
+	}
+
+}

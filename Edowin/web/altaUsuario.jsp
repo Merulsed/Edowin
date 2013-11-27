@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title></title>
+	<title>Crear Usuario</title>
 
 	<link rel="stylesheet" type="text/css" href="front-end/adminUI.css">
 	<script type="text/javascript" src="front-end/jquery-2.0.3.min.js"></script>
@@ -22,7 +22,7 @@
 		<div class="sidebar">
 			<p class="logo">Eduwin</p>
 			<ul class="menu">
-				<li><a href="">
+				<li><a href="altaUsuario.jsp">
 					<img src="front-end/img/menu.adduser.png">
 					Crear Usuario
 				</a></li>

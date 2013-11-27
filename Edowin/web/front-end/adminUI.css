@@ -128,9 +128,9 @@ body, html {
   padding-left: 3rem;
   min-height: 100%;
   background-color: #f0f0f0;
-  /*	background-image: url('img/IMG_3541.jpg');
-  	background-size: cover;
-  	background-position: center;*/
+  /*  background-image: url('img/IMG_3541.jpg');
+    background-size: cover;
+    background-position: center;*/
 }
 .not-sidebar h1 {
   color: #404040;
@@ -309,4 +309,42 @@ body, html {
   width: 100%;
   text-align: center;
   margin: 1rem auto 2rem;
+}
+
+.listaUsuarios .row {
+  display: inline-block;
+  width: auto;
+  white-space: nowrap;
+}
+.listaUsuarios .user {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-right: 1rem;
+  padding: 1rem 0;
+}
+.listaUsuarios .header {
+  color: #606060;
+}
+.listaUsuarios .id {
+  width: 3rem;
+  text-align: right;
+}
+.listaUsuarios .username {
+  width: 8rem;
+}
+.listaUsuarios .mail {
+  width: 16rem;
+}
+.listaUsuarios .nombre {
+  width: 8rem;
+}
+.listaUsuarios .apellidoP {
+  width: 8rem;
+}
+.listaUsuarios .apellidoM {
+  width: 8rem;
+}
+.listaUsuarios .esAdmin {
+  width: 4rem;
 }
