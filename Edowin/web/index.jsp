@@ -18,7 +18,7 @@
 	<div id="wrapper" class="loginwrapper">
 		<div class="login">
 			<h1>Inicia Sesión</h1>
-			<form class="width1" method="POST" action="index2.jsp">
+			<form class="width1" method="POST" action="iniciosesion.jsp">
 				<div class="inputbox">
 					<input type="text" placeholder="Nombre de Usuario" name="username">
 				</div>

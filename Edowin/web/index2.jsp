@@ -16,31 +16,22 @@
     </head>
     <body>
 <%
-    String username = request.getParameter("username");
-    String password = request.getParameter("password");
-    String inicio = (String)session.getAttribute("inicio");
-    
-    vidaFacil facil = new vidaFacil();
-    Usuario user = facil.obtenUsuario(username);
-    if(inicio != null){
-        if(user.getPassword().equals(password)){
-            session.setAttribute("user", user);
-            session.setAttribute("inicio", "cierto");
+    String cierto = (String)session.getAttribute("inicio");
+    if(cierto != null){
+         Usuario usuario = (Usuario)session.getAttribute("user");
 %>
 
         <h1>Index temporal</h1>
         <a href="altaUsuario.jsp">Alta Usuario</a>
         <a href="consultaUsuarios.jsp">Consulta Usuarios</a>
         <a href="editaUsuario.jsp">Edita usuario</a>
-    </body>
-</html>
-<%  }
-    } else{
+    <%
+    }else{
 %>
         Usuario incorrecto
         <a href="index.jsp">regresar</a>
 <%
     }
 %>
-    </body>
+</body>
 </html>
