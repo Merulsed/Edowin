@@ -315,19 +315,25 @@ body, html {
   display: inline-block;
   width: auto;
   white-space: nowrap;
+  border-bottom: 1px solid #D0D0D0;
 }
 .listaUsuarios .user {
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
   margin-right: 1rem;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 }
-.listaUsuarios .header {
+.listaUsuarios .row:nth-child(2n) {
+  background: #E5E5E5;
   color: #606060;
 }
+.listaUsuarios .header {
+  color: #D0D0D0;
+  background-color: #202224;
+}
 .listaUsuarios .id {
-  width: 3rem;
+  width: 4rem;
   text-align: right;
 }
 .listaUsuarios .username {

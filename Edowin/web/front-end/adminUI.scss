@@ -407,30 +407,33 @@ body, html {
 		display: inline-block;
 		width: auto;
 		white-space: nowrap;
+		border-bottom: 1px solid #D0D0D0;
 
 	}
 
 	.user {
-	display: inline-block;
-	white-space: nowrap;
-	overflow: hidden;
-
-	margin-right: 1rem;
-	padding: 1rem 0;
+		display: inline-block;
+		white-space: nowrap;
+		overflow: hidden;
+		margin-right: 1rem;
+		padding: 0.5rem 0;
 	}
 
+	.row:nth-child(2n) {
+		background: #E5E5E5;
+		color: #606060;
+	}
 
 	.header {
-
-		color: #606060;
+		color: #D0D0D0;
+		background-color: $grisAzulObscuro;
 	}
 	.not-header {
 	}
 
 
-
 	.id {
-		width: 3rem;
+		width: 4rem;
 		text-align: right;
 	}
 	.username {
