@@ -19,10 +19,19 @@
             session.setAttribute("user", user);
             session.setAttribute("inicio", "cierto");
             response.sendRedirect("index2.jsp");
-        }else
-         response.sendRedirect("index.jsp");
+        }else{
+            session.removeAttribute("user");
+            session.removeAttribute("inicio");
+            session.invalidate();
+            response.sendRedirect("index.jsp");
+        }
     }
-    else
-        response.sendRedirect("index.jsp");
+    else{
+        session.removeAttribute("user");
+        session.removeAttribute("inicio");
+        session.invalidate(); 
+        response.sendRedirect("index.jsp");    
+    }
+        
 
 %>

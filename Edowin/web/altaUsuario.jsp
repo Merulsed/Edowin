@@ -42,7 +42,7 @@
 					<img src="front-end/img/menu.settings.png">
 					Configuración
 				</a></li>
-				<li><a href="">
+				<li><a href="iniciosesion.jsp">
 					<img src="front-end/img/menu.close.png">
 					Cerrar Sesión
 				</a></li>
