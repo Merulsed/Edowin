@@ -44,9 +44,9 @@
                 if(hola == true)
                     out.print("Usuario registrado con exito");
                 else
-                    out.print("Fallo al registrar usuario");             
+                    out.print("Fallo al registrar usuario");  
+                response.sendRedirect("consultaUsuarios.jsp"); 
             %>
-            <a href="index2.jsp">regresar</a>
         </h1>
 <%
     }else{

@@ -21,7 +21,7 @@
          Usuario usuario = (Usuario)session.getAttribute("user");
 %>
 
-        <h1>Index temporal</h1>
+        <h1>Index temporal <% out.print(usuario.getUsername()); %></h1>
         <a href="altaUsuario.jsp">Alta Usuario</a>
         <a href="consultaUsuarios.jsp">Consulta Usuarios</a>
         <a href="editaUsuario.jsp">Edita usuario</a>

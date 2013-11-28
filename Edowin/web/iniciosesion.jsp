@@ -13,7 +13,7 @@
     String password = request.getParameter("password");
     
     vidaFacil facil = new vidaFacil();
-    Usuario user = facil.obtenUsuario(username);
+    Usuario user = facil.obtenUsuarioXUsername(username);
     if(user.getID() != 0){
         if(user.getPassword().equals(password)){
             session.setAttribute("user", user);
