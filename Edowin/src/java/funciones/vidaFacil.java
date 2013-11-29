@@ -8,6 +8,7 @@ package funciones;
 
 import bd.FunMysql;
 import java.sql.ResultSet;
+import objetos.Archivo;
 import objetos.Usuario;
 
 /**
@@ -82,6 +83,26 @@ public class vidaFacil {
         catch(Exception e){
             e.printStackTrace();
             return null;
+        }
+    }
+    
+    public Archivo obtenArchivo(int idArchivo2){
+        int idArchivo=0;
+        String nombre=null;
+        String tipo=null;
+        String url = null;
+        boolean publico = false;
+        Usuario user = null;
+        FunMysql con = new FunMysql();
+        con.conectar();
+        ResultSet resultado = con.consultaArchivo("Id Archivo", String.valueOf(idArchivo2));
+        try{
+            while(res){
+            
+            }
+        }
+        catch(Exception e){
+            
         }
     }
 }

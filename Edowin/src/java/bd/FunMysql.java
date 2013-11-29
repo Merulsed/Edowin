@@ -76,12 +76,12 @@ public class FunMysql {
         try{
             Statement sentencia = getCon().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
             sentencia.executeUpdate("UPDATE Usuario SET username='"+user.getUsername()+"', mail='"+user.getMail()+"', nombre='"+user.getNombre()+"', apellidoP='"+user.getApellidoP()+"', apellidoM='"+user.getApellidoM()+"', esAdmin='"+user.getEsAdmin()+"' WHERE ID='"+user.getID()+"'");
-            return true;
         }
         catch(SQLException e){
             e.printStackTrace();
             return false;
         }
+        return true;
     }
     
     //Funcion de eliminacion de usuarios
@@ -89,11 +89,11 @@ public class FunMysql {
         try{
             Statement sentencia = getCon().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
             sentencia.executeQuery("DELETE FROM Usuario WHERE ID = '"+user.getID()+"'");
-            return true;
         } catch(SQLException e){
             e.printStackTrace();
             return false;
         }
+        return true;
     }
     
     //Funcion de consulta usuarios (todos los usuarios)
@@ -158,5 +158,71 @@ public class FunMysql {
             return false;
         }
         return true;
+    }
+    
+    //Update en los Archivos
+    public boolean updateArchivo(Archivo archive){
+        try{
+            Statement sentencia = getCon().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+            sentencia.executeUpdate("UPDATE Archivo SET nombre='"+archive.getNombre()+"', tipo='"+archive.getTipo()+"', url='"+archive.getUrl()+"', publico='"+archive.getPublico()+"', userID='"+archive.getUser().getID()+"'");
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+    
+    //Delete en los archivos
+    public boolean deleteArchivo(Archivo archive){
+        try{
+            Statement sentencia = getCon().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+            sentencia.executeQuery("DELETE FROM Archivo WHERE idArchivo = '"+archive.getIdArchivo()+"'");
+        } catch(SQLException e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+    
+    //Consulta de archvios
+    public ResultSet consultaArchivos(){
+        ResultSet resultado;
+        try {
+            Statement sentencia = getCon().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+            resultado = sentencia.executeQuery("SELECT * FROM Archivos");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }        return resultado;
+    }
+    
+    //Consulta de archivos por parametros
+    public ResultSet consultaArchivo(String buscador, String valor){
+         ResultSet resultado;
+        try{
+            Statement sentencia = getCon().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+            if(buscador.equals("Id Archivo")){
+                resultado = sentencia.executeQuery("SELECT * FROM Archivo WHERE idArchivo = '"+valor+"'");
+                return resultado;
+            } else if(buscador.equals("Nombre")){
+                resultado = sentencia.executeQuery("SELECT * FROM Archivo WHERE nombre = '"+valor+"'");
+                return resultado;
+            }else if(buscador.equals("Tipo")){
+                resultado = sentencia.executeQuery("SELECT * FROM Archivo WHERE tipo = '"+valor+"'");
+                return resultado;
+            }else if(buscador.equals("Publico")){
+                resultado = sentencia.executeQuery("SELECT * FROM Archivo WHERE publico = '"+valor+"'");
+                return resultado;
+            }else if(buscador.equals("Usuario")){
+                resultado = sentencia.executeQuery("SELECT * FROM Archivo WHERE userID = '"+valor+"'");
+                return resultado;
+            }else{
+                return null;
+            }
+        } catch(SQLException e){
+            e.printStackTrace();
+            return null;
+        }
     }
 }
