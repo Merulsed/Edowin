@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import objetos.Archivo;
 import objetos.Usuario;
 
 /**
@@ -59,7 +60,6 @@ public class FunMysql {
     //Funcion de altas de usuario
     public boolean altaUsuario(Usuario user){
         try{
-            //INSERT INTO Usuario (username, password, mail, nombre, esAdmin) VALUES ('ChuckNorris', 'clasico', 'yang.silva.neri@gmail.com', 'Chuck Norris', true);
             Statement sentencia = getCon().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
             sentencia.executeUpdate("INSERT INTO Usuario (username,password,mail,nombre,apellidoP,apellidoM,esAdmin) VALUES ('"+user.getUsername()+"','"+user.getPassword()+"','"+user.getMail()+"','"+user.getNombre()+"','"+user.getApellidoP()+"','"+user.getApellidoM()+"','"+user.getEsAdmin()+"')");
             sentencia.close();
@@ -143,5 +143,20 @@ public class FunMysql {
             return null;
         }
         
+    }
+    
+    //Empiezan las funciones con los archivos 
+    //Alta de archivos
+    public boolean altaArchivo(Archivo archives){
+        try{
+            Statement sentencia = getCon().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+            sentencia.executeUpdate("INSERT INTO Archivo (nombre, tipo, url, publico) VALUES ('"+archives.getNombre()+"','"+archives.getTipo()+"','"+archives.getUrl()+"','"+archives.getPublico()+"')");
+            sentencia.close();
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
 }

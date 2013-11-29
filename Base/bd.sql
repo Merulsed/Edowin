@@ -21,8 +21,8 @@ CREATE TABLE Archivo (
 	numPaginas INT,
 	url VARCHAR(60),
 	numDescargas INT,
-	Publico BOOLEAN NOT NULL,
-	fechaCreacion DATETIME NOT NULL,
+	Publico VARCHAR(20) NOT NULL,
+	fechaCreacion DATETIME,
 	userID INT NOT NULL,
 	PRIMARY KEY(idArchivo),
 	FOREIGN KEY (userID)
@@ -30,82 +30,3 @@ CREATE TABLE Archivo (
 );
 
 INSERT INTO Usuario (username, password, mail, nombre, esAdmin) VALUES ('ChuckNorris', 'clasico', 'yang.silva.neri@gmail.com', 'Chuck Norris', "true");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -12,7 +12,7 @@ import java.util.Date;
  *
  * @author YangEnrique
  */
-public class Archivos {
+public class Archivo {
     private int idArchivo;
     private String Nombre;
     private String Tipo;
@@ -23,15 +23,12 @@ public class Archivos {
     private Date FechaCreacion;
     private Usuario User;
     
-    Archivos(String Nombre, String Tipo, int NumPaginas, String Url, int NumDescargas, boolean Publico, Date FechaCreacion, Usuario User){
+    Archivo(String Nombre, String Tipo, int NumPaginas, String Url, boolean Publico){
         this.Nombre = Nombre;
         this.Tipo = Tipo;
         this.NumPaginas = NumPaginas;
         this.Url = Url;
-        this.NumDescargas = NumDescargas;
         this.Publico = Publico;
-        this.FechaCreacion = FechaCreacion;
-        this.User = User;
     }
 
     public int getIdArchivo() {
@@ -82,7 +79,7 @@ public class Archivos {
         this.NumDescargas = NumDescargas;
     }
 
-    public boolean isPublico() {
+    public boolean getPublico() {
         return Publico;
     }
 
