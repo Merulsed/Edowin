@@ -107,7 +107,8 @@ public class vidaFacil {
                 userid = resultado.getInt("userID");
             }
             user = obtenUsuario(userid);
-            Archivo archive = new Archivo(nombre,tipo, url, publico);
+            Archivo archive = new Archivo(nombre,tipo, publico);
+            archive.setUrl(url);
             archive.setIdArchivo(idArchivo);
             archive.setUser(user);
             return archive;

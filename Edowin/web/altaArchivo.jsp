@@ -4,21 +4,44 @@
     Author     : YangEnrique
 --%>
 
+<%@page import="bd.FunMysql"%>
+<%@page import="objetos.Archivo"%>
+<%@page import="objetos.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>File Upload Demo</title>
+<title>Subida de Archvio</title>
 </head>
 <body>
-	<center>
-		<form method="post" action="procesaArchivo.jsp" enctype="multipart/form-data">
-			Select file to upload: 
-			<input type="file" name="file" /> 
-			<br/><br/> 
-			<input type="submit" value="Upload" />
-		</form>
-	</center>
+<%
+    String cierto = (String)session.getAttribute("inicio");
+    if(cierto != null){
+         Usuario usuario = (Usuario)session.getAttribute("user");
+         String nombre = request.getParameter("nombre");
+         String tipo = request.getParameter("tipo");
+         String url = request.getParameter("url");
+         boolean publico = Boolean.parseBoolean(request.getParameter("publico"));
+         
+         Archivo archive = new Archivo(nombre,tipo,publico);
+         archive.setUrl(url);
+         archive.setUser(usuario);
+         
+         FunMysql con = new FunMysql();
+         con.conectar();
+         con.altaArchivo(archive);
+         
+%>
+    Archivo subo con un total exito
+
+<%
+    }else{
+%>
+        Usuario incorrecto
+        <a href="index.jsp">regresar</a>
+<%
+    }
+%>
 </body>
 </html>

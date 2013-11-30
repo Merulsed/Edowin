@@ -150,7 +150,7 @@ public class FunMysql {
     public boolean altaArchivo(Archivo archives){
         try{
             Statement sentencia = getCon().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
-            sentencia.executeUpdate("INSERT INTO Archivo (nombre, tipo, url, publico) VALUES ('"+archives.getNombre()+"','"+archives.getTipo()+"','"+archives.getUrl()+"','"+archives.getPublico()+"')");
+            sentencia.executeUpdate("INSERT INTO Archivo (nombre, tipo, url, publico, userID) VALUES ('"+archives.getNombre()+"','"+archives.getTipo()+"','"+archives.getUrl()+"','"+archives.getPublico()+"','"+archives.getUser().getID()+"')");
             sentencia.close();
         }
         catch(SQLException e){

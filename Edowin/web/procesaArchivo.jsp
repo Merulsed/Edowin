@@ -3,6 +3,7 @@
     Created on : 29/11/2013, 07:49:18 PM
     Author     : YangEnrique
 --%>
+<%@page import="objetos.Usuario"%>
 <%@page import="java.nio.file.Files"%>
 <%@ page import="java.util.*" %>
 <%@ page import="org.apache.commons.fileupload.*" %>
@@ -14,6 +15,9 @@
 <!DOCTYPE html>
 
 <%
+    String cierto = (String)session.getAttribute("inicio");
+    if(cierto != null){
+         Usuario usuario = (Usuario)session.getAttribute("user");
 /*FileItemFactory es una interfaz para crear FileItem*/
         FileItemFactory file_factory = new DiskFileItemFactory();
  
@@ -21,12 +25,14 @@
         ServletFileUpload servlet_up = new ServletFileUpload(file_factory);
         /*sacando los FileItem del ServletFileUpload en una lista */
         List items = servlet_up.parseRequest(request);
+        String nombreReal=null;
+        String url=null;
  
         for(int i=0;i<items.size();i++){
             /*FileItem representa un archivo en memoria que puede ser pasado al disco duro*/
             FileItem item = (FileItem) items.get(0);
             String n[] =item.getName().replace("\\","-").split("-");
-            String nombreReal=n[n.length-1]; //nombre real del archivo para guardar
+            nombreReal=n[n.length-1]; //nombre real del archivo para guardar
             /*item.isFormField() false=input file; true=text field*/
             /*item.isFormField() false=input file; true=text field*/
             if (! item.isFormField()){
@@ -34,6 +40,7 @@
                 File archivo_server = new File("c:/subidos/"+nombreReal);
                 /*y lo escribimos en el servido*/
                 item.write(archivo_server);
+                url = "c:/subidos/"+nombreReal;
                 out.print("Nombre --> " + item.getName() );
                 out.print("<br> Tipo --> " + item.getContentType());
                 out.print("<br> tamaño --> " + (item.getSize()/1240)+ "KB");
@@ -45,9 +52,31 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Alta del archivo</title>
     </head>
     <body>
         <h1>Hello World!</h1>
+        <form method="post" action="altaArchivo.jsp">
+            Nombre no modificar <input type="text" name="nombre" value="<% out.print(nombreReal); %>"><br><br>
+            url no modificar <input type="" name="url" value="<% out.print(url); %>">
+        Tipo<select name="tipo"><br>
+            <option>Documento</option>
+            <option>Audio</option>
+            <option>Video</option>
+            <option>Otro</option>
+        </select>
+        Publico<br>
+        si<input type="radio" name="publico" value="true"><br>
+        No<input type="radio" name="publico" valueC="false"><br>  
+	<input type="submit"/>
+    </form>
+        <%
+    }else{
+%>
+        Usuario incorrecto
+        <a href="index.jsp">regresar</a>
+<%
+    }
+%>
     </body>
 </html>

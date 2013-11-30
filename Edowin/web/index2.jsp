@@ -25,6 +25,7 @@
         <a href="altaUsuario.jsp">Alta Usuario</a>
         <a href="consultaUsuarios.jsp">Consulta Usuarios</a>
         <a href="editaUsuario.jsp">Edita usuario</a>
+        <a href="subeArchivo.jsp">Alta de Archivos</a>
     <%
     }else{
 %>
