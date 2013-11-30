@@ -4,6 +4,7 @@
     Author     : YangEnrique
 --%>
 
+<%@page import="objetos.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +13,11 @@
         <title>JSP Page</title>
     </head>
     <body>
+<%
+    String cierto = (String)session.getAttribute("inicio");
+    if(cierto != null){
+         Usuario usuario = (Usuario)session.getAttribute("user");
+%>
         <h1>Subida de archivos</h1><br>
         <form action="" method="POST" enctype="multipart/form-data">
             Nombre<input type="text" name="nombre"><br>
@@ -25,6 +31,14 @@
             No<input type="radio" name="publico" value="false"><br>
             Subir<input type="file" name="file"/> <br>
             <input type="submit">
-        </form>
+        </form>        
+<%
+    }else{
+%>
+        Usuario incorrecto
+        <a href="index.jsp">regresar</a>
+<%
+    }
+%>
     </body>
 </html>

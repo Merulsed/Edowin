@@ -92,17 +92,29 @@ public class vidaFacil {
         String tipo=null;
         String url = null;
         boolean publico = false;
+        int userid = 0;
         Usuario user = null;
         FunMysql con = new FunMysql();
         con.conectar();
         ResultSet resultado = con.consultaArchivo("Id Archivo", String.valueOf(idArchivo2));
         try{
-            while(res){
-            
+            while(resultado.next()){
+                idArchivo = resultado.getInt("idArchivo");
+                nombre = resultado.getString("nombre");
+                tipo = resultado.getString("tipo");
+                url = resultado.getString("url");
+                publico = Boolean.parseBoolean(resultado.getString("publico"));
+                userid = resultado.getInt("userID");
             }
+            user = obtenUsuario(userid);
+            Archivo archive = new Archivo(nombre,tipo, url, publico);
+            archive.setIdArchivo(idArchivo);
+            archive.setUser(user);
+            return archive;
         }
         catch(Exception e){
-            
+            e.printStackTrace();
+            return null;
         }
     }
 }

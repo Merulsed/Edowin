@@ -23,10 +23,9 @@ public class Archivo {
     private Date FechaCreacion;
     private Usuario User;
     
-    Archivo(String Nombre, String Tipo, int NumPaginas, String Url, boolean Publico){
+    public Archivo(String Nombre, String Tipo, String Url, boolean Publico){
         this.Nombre = Nombre;
         this.Tipo = Tipo;
-        this.NumPaginas = NumPaginas;
         this.Url = Url;
         this.Publico = Publico;
     }
