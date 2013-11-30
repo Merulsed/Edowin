@@ -17,7 +17,7 @@
 <%
     String cierto = (String)session.getAttribute("inicio");
     if(cierto != null){
-         Usuario usuario = (Usuario)session.getAttribute("user");
+    Usuario usuario = (Usuario)session.getAttribute("user");
     int ID = Integer.parseInt(request.getParameter("ID"));
     String username = request.getParameter("username");
     String mail = request.getParameter("mail");
