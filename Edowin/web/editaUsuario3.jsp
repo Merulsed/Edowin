@@ -52,6 +52,7 @@
                 }    
             %>
             <input type="submit">
+            <a href="eliminaUsuario.jsp?ID=<% out.print(valor); %>">Eliminar Usuario</a>
         </form>
 <%
     }else{
