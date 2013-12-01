@@ -82,6 +82,7 @@
 					 --><div class="user apellidoP">Ap. Paterno</div><!-- 
 					 --><div class="user apellidoM">Ap. Materno</div><!-- 
 					 --><div class="user esAdmin">Admin</div><!-- 
+                                         --><div class="user editar">Editar</div><!-- 
 				 --></div>
 
                             <form method="post" action="editaUsuario3.jsp">
@@ -112,12 +113,12 @@
                                                                             out.print("Admin");
                                                                         else
                                                                             out.print("");
-								out.print("</div>");
+								out.print(  "</div>");
                                                                 out.print("<div class='user editar'>");
-                                                                    out.print("<input type='radio' name='ID' value='"+resultados.getInt("ID")+"'");
+                                                                    out.print("<input type='radio' name='ID' value='"+resultados.getInt("ID")+"'>");
                                                                 out.print("</div>");
                                                                 
-							out.print("</div><br>");
+							out.print("</div>");
 						}
 					}
 					catch(Exception e){
@@ -125,7 +126,7 @@
 					}
 				%>
                                 <br><br><br><br>
-                                <input type="submit">
+                                <input type="submit" value="Editar usuario seleccionado" class="">
                             </form>
 
 			</div>
