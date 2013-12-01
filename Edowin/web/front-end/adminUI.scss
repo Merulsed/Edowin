@@ -22,7 +22,27 @@
   filter: alpha(opacity=$value);
            -moz-opacity: $value;
                 opacity: $value;
-} 
+}
+
+@mixin placeholderColor($color) {
+	::-webkit-input-placeholder {
+	   color: $color;
+	}
+
+	:-moz-placeholder { /* Firefox 18- */
+	   color: $color;  
+	}
+
+	::-moz-placeholder {  /* Firefox 19+ */
+	   color: $color;  
+	}
+
+	:-ms-input-placeholder {  
+	   color: $color;  
+	}
+}
+
+
 
 
 $fontStack: 'Lato', 'Segoe UI', 'Helvetica Neue', sans-serif;
@@ -249,7 +269,7 @@ body, html {
 			background-color: #F7F7F7;
 		} 
 
-		input[type="submit"] {
+		input[type="submit"], .eliminar {
 			display: inline-block;
 			width: auto;
 			margin: 1rem auto;
@@ -257,6 +277,7 @@ body, html {
 			font-size: 1.125rem;
 			color: #27AE60;
 			border: 2px solid #2ECC71;
+			text-decoration: none;
 			cursor: pointer;
 			@include border-radius(0);
 			@include transition(background-color, 300ms, ease-in-out);
@@ -266,6 +287,18 @@ body, html {
 			background-color: #2ECC71;
 			border: 2px solid #27AE60;
 		}
+
+		.eliminar {
+			color: #C0392B;
+			border: 2px solid #E74C3C;
+		}
+		.eliminar:hover {
+			color: #F0F0F0;
+			background-color: #E74C3C;
+			border: 2px solid #C0392B;
+
+		}
+
 	}
 
 	.inputbox:last-child {
@@ -478,4 +511,21 @@ body, html {
 		border: 2px solid #27AE60;
 	}
 
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* Random */
+
+.hidden {
+	display: none;
 }

@@ -79,11 +79,11 @@
 				</div>
 				<div class="inputbox">
 					<p>Apellido Paterno</p>
-					<input type="text" placeholder="Nombre" name="ApellidoP">
+					<input type="text" placeholder="Apellido Paterno" name="ApellidoP">
 				</div>
 				<div class="inputbox">
 					<p>Apellido Materno</p>
-					<input type="text" placeholder="Nombre" name="ApellidoM">
+					<input type="text" placeholder="Apellido Materno" name="ApellidoM">
 				</div>
 				<div class="inputbox">
 					<p>Es Administrador?</p>
