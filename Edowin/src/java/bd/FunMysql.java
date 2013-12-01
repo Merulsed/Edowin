@@ -88,7 +88,7 @@ public class FunMysql {
     public boolean deleteUsuario(Usuario user){
         try{
             Statement sentencia = getCon().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
-            sentencia.executeQuery("DELETE FROM Usuario WHERE ID = '"+user.getID()+"'");
+            sentencia.executeUpdate("DELETE FROM Usuario WHERE ID = '"+user.getID()+"'");
         } catch(SQLException e){
             e.printStackTrace();
             return false;
@@ -177,8 +177,20 @@ public class FunMysql {
     public boolean deleteArchivo(Archivo archive){
         try{
             Statement sentencia = getCon().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
-            sentencia.executeQuery("DELETE FROM Archivo WHERE idArchivo = '"+archive.getIdArchivo()+"'");
+            sentencia.executeUpdate("DELETE FROM Archivo WHERE idArchivo = '"+archive.getIdArchivo()+"'");
         } catch(SQLException e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+    
+    //Delete de los archivos de un usuario en especifico 
+    public boolean deleteArchivoUsuario(Usuario user){
+        try{
+            Statement sentencia = getCon().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+            sentencia.executeUpdate("DELETE FROM Archivo WHERE userID = '"+user.getID()+"'");
+        }catch(SQLException e){
             e.printStackTrace();
             return false;
         }

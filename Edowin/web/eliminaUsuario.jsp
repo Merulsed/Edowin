@@ -4,6 +4,9 @@
     Author     : YangEnrique
 --%>
 
+<%@page import="bd.FunMysql"%>
+<%@page import="objetos.Usuario"%>
+<%@page import="funciones.vidaFacil"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,8 +16,14 @@
     </head>
     <body>
         <%
-            String id = request.getParameter("ID");
-            out.print(id);
+            int id = Integer.parseInt(request.getParameter("ID"));
+            vidaFacil facil = new vidaFacil();
+            Usuario user = facil.obtenUsuario(id);
+            FunMysql con = new FunMysql();
+            con.conectar();
+            con.deleteArchivoUsuario(user);
+            con.deleteUsuario(user);
+            
         %>
         <h1>Hello World!</h1>
     </body>
