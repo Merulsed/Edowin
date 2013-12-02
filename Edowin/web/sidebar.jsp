@@ -27,10 +27,6 @@
                         <img src="front-end/img/menu.viewdocs.png">
                         Mis Documentos
                 </a></li>
-                <li><a href="editaUsuario.jsp">
-                        <img src="front-end/img/menu.settings.png">
-                        Configuración
-                </a></li>
                 <li><a href="endSession.jsp">
                         <img src="front-end/img/menu.close.png">
                         Cerrar Sesión
