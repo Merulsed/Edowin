@@ -34,11 +34,13 @@
     FunMysql con = new FunMysql();
     con.conectar();
     con.updateUsuario(user);
-%>
 
-        <h1>Exito</h1>
-        <a href="index2.jsp">volver</a>
-<%
+    // Redirección automática
+    String site = new String("consultaUsuarios.jsp");
+    response.setStatus(response.SC_MOVED_TEMPORARILY);
+    response.setHeader("Location", site);
+    
+    
     }else{
 %>
         Usuario incorrecto
