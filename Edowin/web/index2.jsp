@@ -22,8 +22,12 @@
 %>
 
         <h1>Index temporal <% out.print(usuario.getUsername()); %></h1>
+        <%
+        if(usuario.getEsAdmin()){
+        %>
         <a href="altaUsuario.jsp">Alta Usuario</a>
         <a href="consultaUsuarios.jsp">Consulta Usuarios</a>
+        <% } %>
         <a href="editaUsuario.jsp">Edita usuario</a>
         <a href="subeArchivo.jsp">Alta de Archivos</a>
     <%

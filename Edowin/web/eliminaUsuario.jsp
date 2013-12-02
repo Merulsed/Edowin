@@ -25,6 +25,7 @@
             con.deleteUsuario(user);
             
         %>
-        <h1>Hello World!</h1>
+        <h1>Usuario ELiminado con exito</h1>
+        <a href="index2.jsp">Regresar</a>
     </body>
 </html>

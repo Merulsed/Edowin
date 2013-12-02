@@ -7,7 +7,9 @@
 package funciones;
 
 import bd.FunMysql;
+import java.io.File;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import objetos.Archivo;
 import objetos.Usuario;
 
@@ -96,7 +98,7 @@ public class vidaFacil {
         Usuario user = null;
         FunMysql con = new FunMysql();
         con.conectar();
-        ResultSet resultado = con.consultaArchivo("Id Archivo", String.valueOf(idArchivo2));
+        ResultSet resultado = con.consultaArchivoPor("Id Archivo", String.valueOf(idArchivo2));
         try{
             while(resultado.next()){
                 idArchivo = resultado.getInt("idArchivo");
@@ -116,6 +118,41 @@ public class vidaFacil {
         catch(Exception e){
             e.printStackTrace();
             return null;
+        }
+    }
+    
+    public boolean borrarArchivo(Archivo archive){
+        FunMysql con = new FunMysql();
+        con.conectar();
+        con.deleteArchivo(archive);
+        File url = new File(archive.getUrl());
+        url.delete();
+        if(url.exists()){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    
+    public booelan borrarArchivoUsuario(Usuario user){
+        ArrayList array = new ArrayList();
+        String url;
+        
+        FunMysql con = new FunMysql();
+        con.conectar();
+        ResultSet resultado = con.consultaArchivoPor("Usuario", String.valueOf(user.getID()));
+        try{
+            while(resultado.next()){
+                array.add(resultado.getString("url"));
+            }
+            for(int i=0;i<array.size();i++){
+                url = array.get(i).toString();
+                new File(url).delete();
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();;
+            return false;
         }
     }
 }

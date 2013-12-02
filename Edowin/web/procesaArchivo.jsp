@@ -47,7 +47,8 @@
                 out.print("<br>");
             }
         }
-        //boolean hola = new File("c:/subidos/prueba").mkdir();
+        
+        boolean hola = new File("c:/subidos/prueba").mkdir();
 %>
 <html>
     <head>

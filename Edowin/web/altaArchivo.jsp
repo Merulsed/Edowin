@@ -34,6 +34,7 @@
          
 %>
     Archivo subo con un total exito
+     <a href="index2.jsp">Regresar</a>
 
 <%
     }else{

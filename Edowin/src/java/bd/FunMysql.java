@@ -210,7 +210,7 @@ public class FunMysql {
     }
     
     //Consulta de archivos por parametros
-    public ResultSet consultaArchivo(String buscador, String valor){
+    public ResultSet consultaArchivoPor(String buscador, String valor){
          ResultSet resultado;
         try{
             Statement sentencia = getCon().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
