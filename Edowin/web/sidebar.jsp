@@ -4,10 +4,6 @@
         <ul class="menu">
                 <%
                     
-                    
-                    
-                    
-                    
                 Usuario usuario = (Usuario)session.getAttribute("user");
                   if(usuario.getEsAdmin()){ %>
                 <li><a href="altaUsuario.jsp">
