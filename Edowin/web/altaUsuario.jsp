@@ -20,8 +20,9 @@
 %>
 	<div id="wrapper">
 		<div class="sidebar">
-			<p class="logo">Eduwin</p>
+                    <p class="logo"><a class="undecorated" href="index2.jsp">Eduwin</a></p>
 			<ul class="menu">
+                                <% if(usuario.getEsAdmin()){ %>
 				<li><a href="altaUsuario.jsp">
 					<img src="front-end/img/menu.adduser.png">
 					Crear Usuario
@@ -30,15 +31,16 @@
 					<img src="front-end/img/menu.edituser.png">
 					Administrar Usuarios
 				</a></li>
-				<li><a href="">
+                                <% } %>
+				<li><a href="subeArchivo.jsp">
 					<img src="front-end/img/menu.addoc.png">
 					Crear Documento
 				</a></li>
-				<li><a href="">
+				<li><a href="menuArchivos.jsp">
 					<img src="front-end/img/menu.viewdocs.png">
 					Administrar Documentos
 				</a></li>
-				<li><a href="">
+				<li><a href="editaUsuario.jsp">
 					<img src="front-end/img/menu.settings.png">
 					Configuración
 				</a></li>

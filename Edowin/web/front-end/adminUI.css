@@ -46,6 +46,9 @@ body, html {
     color: #00BFFF;
     text-align: center;
     padding: 1.5rem 0; }
+  .sidebar .logo a {
+    text-decoration: none;
+    color: inherit; }
   .sidebar .menu {
     list-style: none; }
     .sidebar .menu ::-webkit-scrollbar {
