@@ -15,6 +15,7 @@
 <!DOCTYPE html>
 
 <%
+    try{
     String cierto = (String)session.getAttribute("inicio");
     if(cierto != null){
          Usuario usuario = (Usuario)session.getAttribute("user");
@@ -106,6 +107,9 @@
         Usuario incorrecto
         <a href="index.jsp">regresar</a>
 <%
+    }}catch(Exception e){
+        e.printStackTrace();
+         response.sendRedirect("index.jsp");
     }
 %>
     </body>

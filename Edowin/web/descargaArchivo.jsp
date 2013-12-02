@@ -4,6 +4,7 @@
     Author     : YangEnrique
 --%>
 
+<%@page import="objetos.Usuario"%>
 <%@page import="funciones.vidaFacil"%>
 <%@page import="objetos.Archivo"%>
 <%@page import="java.io.FileInputStream"%>
@@ -17,6 +18,10 @@
     <body>
         <h1>Descarga</h1>
         <%
+            try{
+    String cierto = (String)session.getAttribute("inicio");
+    if(cierto != null){
+         Usuario usuario = (Usuario)session.getAttribute("user");
             vidaFacil facil = new vidaFacil();
             int id = Integer.parseInt(request.getParameter("id"));
             Archivo archive = facil.obtenArchivo(id);
@@ -37,6 +42,15 @@
         }catch(Exception e){ 
             e.printStackTrace(); 
         } 
+        }else{
+%>
+        Usuario incorrecto
+        <a href="index.jsp">regresar</a>
+<%
+    }}catch(Exception e){
+        e.printStackTrace();
+         response.sendRedirect("index.jsp");
+    }
 %>
         
     </body>

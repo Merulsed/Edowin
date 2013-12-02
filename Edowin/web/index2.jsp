@@ -21,7 +21,7 @@
 </head>
 <body>
 <%
-  
+    try{
     String cierto = (String)session.getAttribute("inicio");
     if(cierto != null){
          Usuario usuario = (Usuario)session.getAttribute("user");
@@ -55,6 +55,9 @@
 	</div>
 
 <%
+    }}catch(Exception e){
+        e.printStackTrace();
+         response.sendRedirect("index.jsp");
     }
 %>
 </body>

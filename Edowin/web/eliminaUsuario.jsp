@@ -16,6 +16,9 @@
     </head>
     <body>
         <%
+            try{
+    String cierto = (String)session.getAttribute("inicio");
+    if(cierto != null){
             int id = Integer.parseInt(request.getParameter("ID"));
             vidaFacil facil = new vidaFacil();
             Usuario user = facil.obtenUsuario(id);
@@ -28,6 +31,16 @@
             String site = new String("consultaUsuarios.jsp");
             response.setStatus(response.SC_MOVED_TEMPORARILY);
             response.setHeader("Location", site);
+            }else{
+%>
+        Usuario incorrecto
+        <a href="index.jsp">regresar</a>
+<%
+    }}catch(Exception e){
+        e.printStackTrace();
+         response.sendRedirect("index.jsp");
+    }
+%>
             
         %>
     </body>

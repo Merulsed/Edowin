@@ -15,6 +15,9 @@
     </head>
     <body>
         <%
+             try{
+    String cierto = (String)session.getAttribute("inicio");
+    if(cierto != null){
             int id = Integer.parseInt(request.getParameter("id"));
             vidaFacil facil = new vidaFacil();
             Archivo archive = facil.obtenArchivo(id);
@@ -38,6 +41,16 @@
 	    <% } %>
             <input type="submit">
             <a href="borrarArchivo.jsp?id=<% out.print(archive.getIdArchivo()); %>">Borrar</a>
+  <%          }else{
+%>
+        Usuario incorrecto
+        <a href="index.jsp">regresar</a>
+<%
+    }}catch(Exception e){
+        e.printStackTrace();
+         response.sendRedirect("index.jsp");
+    }
+%>
         </form>
     </body>
 </html>

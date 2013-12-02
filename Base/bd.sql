@@ -29,4 +29,4 @@ CREATE TABLE Archivo (
 
 ALTER DATABASE edowin charset=utf8;
 
-INSERT INTO Usuario (username, password, mail, nombre, esAdmin) VALUES ('ChuckNorris', 'clasico', 'yang.silva.neri@gmail.com', 'Chuck Norris', "true");
+INSERT INTO Usuario (username, password, mail, nombre, esAdmin) VALUES ('Skywalker', 'Amidala', 'vader@darkside.com', 'Anakin', "true");

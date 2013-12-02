@@ -17,7 +17,7 @@
 <body>
 
 <%
-
+    try{
         if ((String)session.getAttribute("inicio") == null)
             response.sendRedirect("index.jsp");
 
@@ -109,7 +109,10 @@
 		Usuario incorrecto
 		<a href="index.jsp">regresar</a>
 <%
-	}
+	}}catch(Exception e){
+        e.printStackTrace();
+         response.sendRedirect("index.jsp");
+    }
 %>
 </body>
 </html>

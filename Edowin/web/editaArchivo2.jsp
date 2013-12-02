@@ -16,6 +16,9 @@
     </head>
     <body>
         <%
+            try{
+    String cierto = (String)session.getAttribute("inicio");
+    if(cierto != null){
             int idArchivo = Integer.parseInt(request.getParameter("idArchivo"));
             boolean publico = Boolean.parseBoolean(request.getParameter("publico"));
             String tipo = request.getParameter("tipo");
@@ -31,5 +34,15 @@
             response.sendRedirect("consultaArchivos2.jsp");
             
         %>
+        <%          }else{
+%>
+        Usuario incorrecto
+        <a href="index.jsp">regresar</a>
+<%
+    }}catch(Exception e){
+        e.printStackTrace();
+         response.sendRedirect("index.jsp");
+    }
+%>
     </body>
 </html>

@@ -16,6 +16,7 @@
 </head>
 <body>
 <%
+    try{
     String cierto = (String)session.getAttribute("inicio");
     if(cierto != null){
          Usuario usuario = (Usuario)session.getAttribute("user");
@@ -33,7 +34,7 @@
          con.altaArchivo(archive);
          
         // Redirección automática
-        String site = new String("menuArchivos.jsp");
+        String site = new String("consultaArchivos2.jsp");
         response.setStatus(response.SC_MOVED_TEMPORARILY);
         response.setHeader("Location", site);
 
@@ -44,6 +45,9 @@
         Usuario incorrecto
         <a href="index.jsp">regresar</a>
 <%
+    }}catch(Exception e){
+        e.printStackTrace();
+         response.sendRedirect("index.jsp");
     }
 %>
 </body>
