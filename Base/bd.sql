@@ -1,5 +1,5 @@
-DROP SCHEMA IF EXISTS edowin;
-CREATE SCHEMA edowin CHARACTER SET utf8 COLLATE utf8_general_ci;
+DROP DATABASE edowin;
+CREATE DATABASE edowin;
 USE edowin;
 
 CREATE TABLE Usuario (
@@ -16,7 +16,7 @@ CREATE TABLE Usuario (
 
 CREATE TABLE Archivo (
 	idArchivo INT NOT NULL AUTO_INCREMENT,
-	nombre VARCHAR(45) NOT NULL,
+	nombre VARCHAR(80) NOT NULL,
 	tipo VARCHAR(45) NOT NULL,
 	url VARCHAR(120),
 	numDescargas INT,
@@ -26,5 +26,7 @@ CREATE TABLE Archivo (
 	FOREIGN KEY (userID)
     REFERENCES Usuario(ID)
 );
+
+ALTER DATABASE edowin charset=utf8;
 
 INSERT INTO Usuario (username, password, mail, nombre, esAdmin) VALUES ('ChuckNorris', 'clasico', 'yang.silva.neri@gmail.com', 'Chuck Norris', "true");
