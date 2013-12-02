@@ -1,7 +1,7 @@
 <%-- 
-    Document   : consultaArchivos2
-    Created on : 2/12/2013, 12:49:27 AM
-    Author     : YangEnrique
+	Document   : consultaArchivos2
+	Created on : 2/12/2013, 12:49:27 AM
+	Author     : YangEnrique
 --%>
 
 <%@page import="bd.FunMysql"%>
@@ -9,62 +9,85 @@
 <%@page import="objetos.Usuario"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+
+
+<!DOCTYPE>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <%
-    String cierto = (String)session.getAttribute("inicio");
-    if(cierto != null){
-         Usuario usuario = (Usuario)session.getAttribute("user");
-%>
-    <body>
-        <h1>Consulta Archivo</h1>
-        <table border="1">
-            <tr>
-                <td>Id</td>
-                <td>Nombre</td>
-                <td>Tipo</td>
-                <td>Publico</td>
-                <td>Usuario</td>
-                <td>Descargar</td>
-                <td>Editar</td>
-            </tr>
+<head>
+	<meta charset="utf-8">
+	<title>Mis Documentos</title>
+
+	<link rel="stylesheet" type="text/css" href="front-end/adminUI.css">
+	<script type="text/javascript" src="front-end/jquery-2.0.3.min.js"></script>
+	<script type="text/javascript" src="front-end/eduwin.js"></script>
+</head>
+
+	<%
+	String cierto = (String)session.getAttribute("inicio");
+	if(cierto != null){
+		 Usuario usuario = (Usuario)session.getAttribute("user");
+	%>
+	
+<body>
+	<div id="wrapper">
+
+		<%@ include file="sidebar.jsp" %> 
+
+		<div class="not-sidebar">
+
+			<h1>Mis Documentos</h1>
+
+			<div class="listaUsuarios">
+
+				<div class="row header">
+					<div class="user id">ID</div><!-- 
+					--><div class="user random16">Nombre</div><!-- 
+					--><div class="user random8">Tipo</div><!-- 
+					--><div class="user random4">¿Público?</div><!-- 
+					--><div class="user random8">Dueño</div><!-- 
+					--><div class="user descargar">Descargar</div><!--
+					--><div class="user editar">Editar</div><!-- 
+				 --></div>
+
 <%
-            FunMysql con = new FunMysql();
-            con.conectar();
-             try{
-             ResultSet resultado = con.consultaArchivoPor("Usuario",String.valueOf(usuario.getID()));
-             Usuario user;
-             vidaFacil facil = new vidaFacil();
-       
-                while(resultado.next()){
-                    user = facil.obtenUsuario(usuario.getID());
-                    out.print("<tr>");
-                    out.print("<td>"+resultado.getInt("idArchivo")+"</td>");
-                    out.print("<td>"+resultado.getString("nombre")+"</td>");
-                    out.print("<td>"+resultado.getString("tipo")+"</td>");
-                    out.print("<td>"+resultado.getString("publico")+"</td>");
-                    out.print("<td>"+user.getUsername()+"</td>");
-                    out.print("<td><a href='descargaArchivo.jsp?id="+resultado.getInt("idArchivo")+"'>Descargar</a></td>");
-                    out.print("<td><a href='editaArchivo.jsp?id="+resultado.getInt("idArchivo")+"'>Edita</a></td>");
-                    out.print("</tr>");
-                 
-                }
-             }catch(Exception e){
-                 e.printStackTrace();
-             } 
-             %>
-         </table>  
-         <%
-    }else{
+			FunMysql con = new FunMysql();
+			con.conectar();
+			 try{
+			 ResultSet resultado = con.consultaArchivoPor("Usuario",String.valueOf(usuario.getID()));
+			 Usuario user;
+			 vidaFacil facil = new vidaFacil();
+	   
+				while(resultado.next()){
+					out.print("<div class='row not-header'>");
+						user = facil.obtenUsuario(resultado.getInt("userID"));
+						out.print("<div class='user id'>"+resultado.getInt("idArchivo")+"</div>");
+						out.print("<div class='user random16'>"+resultado.getString("nombre")+"</div>");
+						out.print("<div class='user random8'>"+resultado.getString("tipo")+"</div>");
+						out.print("<div class='user random4'>"+resultado.getString("publico")+"</div>");
+						out.print("<div class='user random8'>"+user.getUsername()+"</div>");
+						out.print("<div class='user descargar'><a href='descargaArchivo.jsp?id="+resultado.getInt("idArchivo")+"'>Descargar</a></div>");
+						out.print("<div class='user editar'><a href='editaArchivo.jsp?id="+resultado.getInt("idArchivo")+"'>Editar</a></div>");			
+					out.print("</div>");
+				 
+				}
+			 }catch(Exception e){
+				 e.printStackTrace();
+			 } 
+			 %>
+
+		</div>
+
+		<a href="subeArchivo.jsp" class="superboton">Crear Documento</a>
+
+	</div>
+</div>
+		 <%
+	}else{
 %>
-        Usuario incorrecto
-        <a href="index.jsp">regresar</a>
+		Usuario incorrecto
+		<a href="index.jsp">regresar</a>
 <%
-    }
+	}
 %>
-    </body>
+	</body>
 </html>
