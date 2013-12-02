@@ -37,7 +37,7 @@
         for(int i=0;i<items.size();i++){
             /*FileItem representa un archivo en memoria que puede ser pasado al disco duro*/
             FileItem item = (FileItem) items.get(0);
-            String n[] =item.getName().replace("\\","Ç").split("Ç");
+            String n[] =item.getName().replace("\\","-").split("-");
             nombreReal=n[n.length-1]; //nombre real del archivo para guardar
             /*item.isFormField() false=input file; true=text field*/
             /*item.isFormField() false=input file; true=text field*/
