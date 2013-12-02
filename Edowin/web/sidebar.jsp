@@ -29,10 +29,6 @@
                         <img src="front-end/img/menu.close.png">
                         Cerrar Sesión
                 </a></li>
-                <li><a href="">
-                        <img src="front-end/img/menu.help.png">
-                        Ayuda
-                </a></li>
         </ul>
         <p class="acerca-de"><a href="">Edowin ESCOM 2013</a></p>
 </div>
