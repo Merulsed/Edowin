@@ -30,6 +30,7 @@
         <% } %>
         <a href="editaUsuario.jsp">Edita usuario</a>
         <a href="subeArchivo.jsp">Alta de Archivos</a>
+        <a href="menuArchivos.jsp">Menu Archivos</a>
     <%
     }else{
 %>

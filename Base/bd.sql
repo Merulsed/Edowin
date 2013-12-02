@@ -1,3 +1,4 @@
+DROP DATABASE edowin;
 CREATE DATABASE edowin;
 USE edowin;
 
@@ -10,7 +11,6 @@ CREATE TABLE Usuario (
 	apellidoP VARCHAR(45) NOT NULL,
 	apellidoM VARCHAR(45) NOT NULL,
 	esAdmin VARCHAR(45) NOT NULL,
-	ultimoAcceso DATETIME,
 	PRIMARY KEY (ID)
 );
 
@@ -18,11 +18,9 @@ CREATE TABLE Archivo (
 	idArchivo INT NOT NULL AUTO_INCREMENT,
 	nombre VARCHAR(45) NOT NULL,
 	tipo VARCHAR(45) NOT NULL,
-	numPaginas INT,
 	url VARCHAR(120),
 	numDescargas INT,
 	Publico VARCHAR(20) NOT NULL,
-	fechaCreacion DATETIME,
 	userID INT NOT NULL,
 	PRIMARY KEY(idArchivo),
 	FOREIGN KEY (userID)

@@ -202,7 +202,7 @@ public class FunMysql {
         ResultSet resultado;
         try {
             Statement sentencia = getCon().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
-            resultado = sentencia.executeQuery("SELECT * FROM Archivos");
+            resultado = sentencia.executeQuery("SELECT * FROM Archivo");
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
