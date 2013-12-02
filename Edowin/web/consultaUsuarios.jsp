@@ -87,7 +87,6 @@
                                          --><div class="user editar">Editar</div><!-- 
 				 --></div>
 
-                            <form method="post" action="editaUsuario3.jsp">
 				<%
 					try{
 						while (resultados.next()) {
@@ -117,7 +116,7 @@
                                                                             out.print("");
 								out.print(  "</div>");
                                                                 out.print("<div class='user editar'>");
-                                                                    out.print("<input type='radio' name='ID' value='"+resultados.getInt("ID")+"'>");
+                                                                    out.print("<a href='editaUsuario3.jsp?ID="+resultados.getInt("ID")+"'>Editar</a>");
                                                                 out.print("</div>");
                                                                 
 							out.print("</div>");
@@ -128,8 +127,6 @@
 					}
 				%>
                                 <br><br><br><br>
-                                <input type="submit" value="Editar usuario seleccionado" class="">
-                            </form>
 
 			</div>
 				
