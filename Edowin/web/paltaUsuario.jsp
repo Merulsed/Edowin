@@ -42,10 +42,10 @@
         <h1>
             <%
                 if(hola == true) {
-                        // Redirección automática
-                        String site = new String("consultaUsuarios.jsp");
-                        response.setStatus(response.SC_MOVED_TEMPORARILY);
-                        response.setHeader("Location", site);
+                    // Redirección automática
+                    String site = new String("consultaUsuarios.jsp");
+                    response.setStatus(response.SC_MOVED_TEMPORARILY);
+                    response.setHeader("Location", site);
                 }
                 else
                     out.print("Fallo al registrar usuario");  

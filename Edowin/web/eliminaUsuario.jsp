@@ -24,8 +24,11 @@
             facil.borrarArchivoUsuario(user);
             con.deleteUsuario(user);
             
+            // Redirección automática
+            String site = new String("consultaUsuarios.jsp");
+            response.setStatus(response.SC_MOVED_TEMPORARILY);
+            response.setHeader("Location", site);
+            
         %>
-        <h1>Usuario ELiminado con exito</h1>
-        <a href="index2.jsp">Regresar</a>
     </body>
 </html>
