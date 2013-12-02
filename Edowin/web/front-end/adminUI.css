@@ -344,3 +344,7 @@ body, html {
 /* Random */
 .hidden {
   display: none; }
+
+.undecorated {
+  text-decoration: none;
+  color: inherit; }

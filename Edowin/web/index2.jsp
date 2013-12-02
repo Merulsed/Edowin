@@ -75,7 +75,7 @@
 		</div>
 	</div>
 
-    <% if(!usuario.getEsAdmin()){
+    <% } else {
        %>
     	<div id="wrapper">
 
