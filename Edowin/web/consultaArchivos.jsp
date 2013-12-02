@@ -51,8 +51,8 @@
                     out.print("<td>"+resultado.getString("tipo")+"</td>");
                     out.print("<td>"+resultado.getString("publico")+"</td>");
                     out.print("<td>"+user.getUsername()+"</td>");
-                    out.print("<td><a href='descargaArchivo.jsp&id="+resultado.getInt("idArchivo")+"'>Descargar</a></td>");
-                    out.print("<td><a href='editaArchivo.jsp&id="+resultado.getInt("idArchivo")+"'>Edita</a></td>");
+                    out.print("<td><a href='descargaArchivo.jsp?id="+resultado.getInt("idArchivo")+"'>Descargar</a></td>");
+                    out.print("<td><a href='editaArchivo.jsp?id="+resultado.getInt("idArchivo")+"'>Edita</a></td>");
                     out.print("</tr>");
                  
                 }
