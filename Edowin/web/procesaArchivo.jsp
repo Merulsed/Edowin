@@ -27,6 +27,12 @@
         List items = servlet_up.parseRequest(request);
         String nombreReal=null;
         String url=null;
+       // File carpeta = 
+                new File("C:/subidos/"+usuario.getUsername()).mkdirs();
+        
+        /*if(carpeta.exists()){
+            carpeta.mkdir();
+        }*/
  
         for(int i=0;i<items.size();i++){
             /*FileItem representa un archivo en memoria que puede ser pasado al disco duro*/
@@ -37,10 +43,10 @@
             /*item.isFormField() false=input file; true=text field*/
             if (! item.isFormField()){
                 /*cual sera la ruta al archivo en el servidor*/
-                File archivo_server = new File("c:/subidos/"+nombreReal);
+                File archivo_server = new File("c:/subidos/"+usuario.getUsername()+"/"+nombreReal);
                 /*y lo escribimos en el servido*/
                 item.write(archivo_server);
-                url = "c:/subidos/"+nombreReal;
+                url = "c:/subidos/"+usuario.getUsername()+"/"+nombreReal;
                 out.print("Nombre --> " + item.getName() );
                 out.print("<br> Tipo --> " + item.getContentType());
                 out.print("<br> tamaño --> " + (item.getSize()/1240)+ "KB");
@@ -48,7 +54,6 @@
             }
         }
         
-        boolean hola = new File("c:/subidos/prueba").mkdir();
 %>
 <html>
     <head>
@@ -59,8 +64,8 @@
         <h1>Hello World!</h1>
         <form method="post" action="altaArchivo.jsp">
             Nombre no modificar <input type="text" name="nombre" value="<% out.print(nombreReal); %>"><br><br>
-            url no modificar <input type="" name="url" value="<% out.print(url); %>">
-        Tipo<select name="tipo"><br>
+            url no modificar <input type="text" name="url" value="<% out.print(url); %>">
+        Tipo<select name="tipo">
             <option>Documento</option>
             <option>Audio</option>
             <option>Video</option>
@@ -68,7 +73,7 @@
         </select>
         Publico<br>
         si<input type="radio" name="publico" value="true"><br>
-        No<input type="radio" name="publico" valueC="false"><br>  
+        No<input type="radio" name="publico" value="false"><br>  
 	<input type="submit"/>
     </form>
         <%

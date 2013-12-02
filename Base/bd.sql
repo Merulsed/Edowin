@@ -19,7 +19,7 @@ CREATE TABLE Archivo (
 	nombre VARCHAR(45) NOT NULL,
 	tipo VARCHAR(45) NOT NULL,
 	numPaginas INT,
-	url VARCHAR(60),
+	url VARCHAR(120),
 	numDescargas INT,
 	Publico VARCHAR(20) NOT NULL,
 	fechaCreacion DATETIME,

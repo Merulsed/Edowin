@@ -134,7 +134,7 @@ public class vidaFacil {
         }
     }
     
-    public booelan borrarArchivoUsuario(Usuario user){
+    public boolean borrarArchivoUsuario(Usuario user){
         ArrayList array = new ArrayList();
         String url;
         
@@ -149,10 +149,14 @@ public class vidaFacil {
                 url = array.get(i).toString();
                 new File(url).delete();
             }
+            
+            new File("C:/subidos/"+user.getUsername()).delete();
+            con.deleteArchivoUsuario(user);
         }
         catch(Exception e){
             e.printStackTrace();;
             return false;
         }
+        return true;
     }
 }

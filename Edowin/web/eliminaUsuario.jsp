@@ -21,7 +21,7 @@
             Usuario user = facil.obtenUsuario(id);
             FunMysql con = new FunMysql();
             con.conectar();
-            con.deleteArchivoUsuario(user);
+            facil.borrarArchivoUsuario(user);
             con.deleteUsuario(user);
             
         %>
