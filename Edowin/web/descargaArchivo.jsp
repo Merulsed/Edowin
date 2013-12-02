@@ -15,7 +15,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>fesefws</h1>
+        <h1>Descarga</h1>
         <%
             vidaFacil facil = new vidaFacil();
             int id = Integer.parseInt(request.getParameter("id"));

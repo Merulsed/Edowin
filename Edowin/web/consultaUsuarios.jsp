@@ -92,11 +92,11 @@
 						 e.printStackTrace();
 					}
 				%>
-                                <br><br><br><br>
+                              
 
 			</div>
 				
-
+                                <a href="altaUsuario.jsp" class="superboton">Crear usuario</a>
 						
 
 		</div>

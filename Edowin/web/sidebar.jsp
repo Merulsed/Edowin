@@ -17,11 +17,11 @@
                 </a></li>
                 <li><a href="consultaArchivos.jsp">
                         <img src="front-end/img/menu.viewdocs.png">
-                        Administrar todos los Documentos
+                        Documentos Públicos
                 </a></li>
                 <li><a href="consultaArchivos2.jsp">
                         <img src="front-end/img/menu.viewdocs.png">
-                        Administrar mis Documentos
+                        Mis Documentos
                 </a></li>
                 <li><a href="editaUsuario.jsp">
                         <img src="front-end/img/menu.settings.png">
