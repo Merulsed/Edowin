@@ -66,7 +66,35 @@
          }else{
 %>
         <h1>Consulta de Archvivos</h1>
-        
+        <table border="1">
+            <tr>
+                <td>Id</td>
+                <td>Nombre</td>
+                <td>Tipo</td>
+                <td>Usuario</td>
+                <td>Descargar</td>
+            </tr>
+<%
+             try{
+             ResultSet resultado = con.consultaArchivoPor("Publico", "true");
+             Usuario user;
+             vidaFacil facil = new vidaFacil();
+       
+                while(resultado.next()){
+                    user = facil.obtenUsuario(resultado.getInt("userID"));
+                    out.print("<tr>");
+                    out.print("<td>"+resultado.getInt("idArchivo")+"</td>");
+                    out.print("<td>"+resultado.getString("nombre")+"</td>");
+                    out.print("<td>"+resultado.getString("tipo")+"</td>");
+                    out.print("<td>"+user.getUsername()+"</td>");
+                    out.print("<td><a href='descargaArchivo.jsp?id="+resultado.getInt("idArchivo")+"'>Descargar</a></td>");
+                    out.print("</tr>");
+                 
+                }
+             }catch(Exception e){
+                 e.printStackTrace();
+             }
+%>
 <%
          }
     }else{

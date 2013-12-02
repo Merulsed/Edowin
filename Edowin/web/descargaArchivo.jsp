@@ -4,6 +4,9 @@
     Author     : YangEnrique
 --%>
 
+<%@page import="funciones.vidaFacil"%>
+<%@page import="objetos.Archivo"%>
+<%@page import="java.io.FileInputStream"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,7 +16,28 @@
     </head>
     <body>
         <h1>fesefws</h1>
-        <a href="C:/subidos/hola.jpg">fewfwf</a>
+        <%
+            vidaFacil facil = new vidaFacil();
+            int id = Integer.parseInt(request.getParameter("id"));
+            Archivo archive = facil.obtenArchivo(id);
+            String nomFile;
+        try{
+            nomFile = archive.getUrl();
+            FileInputStream archivo = new FileInputStream(nomFile);
+            int longitud = archivo.available();
+            byte[] datos = new byte[longitud];
+            archivo.read(datos);
+            archivo.close();
+            response.setContentType("application/octet-stream");
+            response.setHeader("Content-Disposition","attachment;filename="+nomFile);
+            ServletOutputStream ouputStream = response.getOutputStream();
+            ouputStream.write(datos);
+            ouputStream.flush();
+            ouputStream.close();
+        }catch(Exception e){ 
+            e.printStackTrace(); 
+        } 
+%>
         
     </body>
 </html>
