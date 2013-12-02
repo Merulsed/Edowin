@@ -4,6 +4,7 @@
     Author     : YangEnrique
 --%>
 
+<%@page import="funciones.vidaFacil"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="bd.FunMysql"%>
 <%@page import="objetos.Usuario"%>
@@ -32,18 +33,24 @@
                 <td>Nombre</td>
                 <td>Tipo</td>
                 <td>Publico</td>
+                <td>Usuario</td>
                 <td>Descargar</td>
                 <td>Editar</td>
             </tr>
 <%
              try{
              ResultSet resultado = con.consultaArchivos();
+             Usuario user;
+             vidaFacil facil = new vidaFacil();
+       
                 while(resultado.next()){
+                    user = facil.obtenUsuario(resultado.getInt("userID"));
                     out.print("<tr>");
                     out.print("<td>"+resultado.getInt("idArchivo")+"</td>");
                     out.print("<td>"+resultado.getString("nombre")+"</td>");
                     out.print("<td>"+resultado.getString("tipo")+"</td>");
                     out.print("<td>"+resultado.getString("publico")+"</td>");
+                    out.print("<td>"+user.getUsername()+"</td>");
                     out.print("<td><a href='descargaArchivo.jsp&id="+resultado.getInt("idArchivo")+"'>Descargar</a></td>");
                     out.print("<td><a href='editaArchivo.jsp&id="+resultado.getInt("idArchivo")+"'>Edita</a></td>");
                     out.print("</tr>");
