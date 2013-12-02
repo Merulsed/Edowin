@@ -36,7 +36,7 @@
                             </div>
                             <div class="inputbox">
                                     <p>Password</p>
-                                    <input type="text" placeholder="password" name="Password">
+                                    <input type="password" placeholder="password" name="Password">
                             </div>
                             <div class="inputbox">
                                     <p>Mail</p>

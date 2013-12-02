@@ -1,10 +1,8 @@
-<!--<%@page import="objetos.Usuario"%>-->
 <div class="sidebar">   
-    <p class="logo"><a class="undecorated" href="index2.jsp">Eduwin</a></p>
+    <p class="logo"><a class="undecorated" href="index2.jsp">Edowin</a></p>
         <ul class="menu">
                 <%
                     
-                //Usuario usuario = (Usuario)session.getAttribute("user");
                   if(usuario.getEsAdmin()){ %>
                 <li><a href="altaUsuario.jsp">
                         <img src="front-end/img/menu.adduser.png">
