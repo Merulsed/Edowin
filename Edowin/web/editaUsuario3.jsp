@@ -102,18 +102,18 @@
 				</div>
 				<div class="inputbox">
 					<p>Es Administrador?</p>
-										<% if(user.getEsAdmin()==true){ %>
-											Si<input type="radio" name="esAdmin" value="true" checked="checked"><br>
-											No<input type="radio" name="esAdmin" value="false"><br>
-										<% }else{ %>
-											Si<input type="radio" name="esAdmin" value="true"><br>
-											No<input type="radio" name="esAdmin" value="false" checked="checked"><br>
-										<% } %>
+                                        <% if(user.getEsAdmin()==true){ %>
+                                                Si<input type="radio" name="esAdmin" value="true" checked="checked"><br>
+                                                No<input type="radio" name="esAdmin" value="false"><br>
+                                        <% }else{ %>
+                                                Si<input type="radio" name="esAdmin" value="true"><br>
+                                                No<input type="radio" name="esAdmin" value="false" checked="checked"><br>
+                                        <% } %>
 				</div>
 				<div class="inputbox">
-										<a href="eliminaUsuario.jsp?ID=<% out.print(valor); %>" class="eliminar">Eliminar Usuario</a>
-										<br>
-										<input type="submit" value="Actualizar">
+                                        <a href="eliminaUsuario.jsp?ID=<% out.print(valor); %>" class="eliminar">Eliminar Usuario</a>
+                                        <br>
+                                        <input type="submit" value="Actualizar">
 				</div>
 
 			</form>

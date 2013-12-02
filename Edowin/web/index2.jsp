@@ -8,9 +8,8 @@
 <%@page import="objetos.Usuario"%>
 <%@page import="funciones.vidaFacil"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">

@@ -47,36 +47,59 @@
                 /*y lo escribimos en el servido*/
                 item.write(archivo_server);
                 url = "c:/subidos/"+usuario.getUsername()+"/"+nombreReal;
-                out.print("Nombre --> " + item.getName() );
-                out.print("<br> Tipo --> " + item.getContentType());
-                out.print("<br> tamaño --> " + (item.getSize()/1240)+ "KB");
-                out.print("<br>");
+                // out.print("Nombre --> " + item.getName() );
+               //  out.print("<br> Tipo --> " + item.getContentType());
+                // out.print("<br> tamaño --> " + (item.getSize()/1240)+ "KB");
+               //  out.print("<br>");
             }
         }
         
 %>
+
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Alta del archivo</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-        <form method="post" action="altaArchivo.jsp">
-            Nombre no modificar <input type="text" name="nombre" value="<% out.print(nombreReal); %>"><br><br>
-            url no modificar <input type="text" name="url" value="<% out.print(url); %>">
-        Tipo<select name="tipo">
-            <option>Documento</option>
-            <option>Audio</option>
-            <option>Video</option>
-            <option>Foto</option>
-            <option>Otro</option>
-        </select>
-        Publico<br>
-        si<input type="radio" name="publico" value="true"><br>
-        No<input type="radio" name="publico" value="false"><br>  
-	<input type="submit"/>
-    </form>
+<head>
+	<meta charset="utf-8">
+	<title>Procesamiento del archivo</title>
+
+	<link rel="stylesheet" type="text/css" href="front-end/adminUI.css">
+	<script type="text/javascript" src="front-end/jquery-2.0.3.min.js"></script>
+	<script type="text/javascript" src="front-end/eduwin.js"></script>
+</head>
+<body>
+    <div class="not-sidebar">
+
+            <h1>Selecciona los atributos del archivo</h1>
+
+            <form method="post" action="altaArchivo.jsp">
+
+                <input type="text" name="nombre" value="<% out.print(nombreReal); %>" class="hidden">
+                <input type="text" name="url" value="<% out.print(url); %>" class="hidden">
+
+                <div class="inputbox">
+                        <p>Selecciona el tipo del archivo</p>
+                        <select name="tipo">
+                            <option>Documento</option>
+                            <option>Audio</option>
+                            <option>Video</option>
+                            <option>Foto</option>
+                            <option>Otro</option>
+                        </select>
+                </div>
+                <div class="inputbox">
+                        <p>¿Es público?</p>
+                        <span>Si</span> <input type="radio" name="publico" value="true">
+                        <span>No</span> <input type="radio" name="publico" value="false">
+                </div>
+
+                <div class="inputbox">
+                        <input type="submit" value="Finalizar">
+                </div>
+                
+                
+            </form>
+            
+    </div>
         <%
     }else{
 %>

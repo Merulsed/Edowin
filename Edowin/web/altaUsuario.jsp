@@ -88,7 +88,7 @@
 					<input type="text" placeholder="Apellido Materno" name="ApellidoM">
 				</div>
 				<div class="inputbox">
-					<p>Es Administrador?</p>
+					<p>¿Es Administrador?</p>
 					<span>Si</span> <input type="radio" name="EsAdmin" value="true">
 					<span>No</span> <input type="radio" name="EsAdmin" value="false">
 				</div>

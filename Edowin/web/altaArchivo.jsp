@@ -32,11 +32,13 @@
          con.conectar();
          con.altaArchivo(archive);
          
-%>
-    Archivo subo con un total exito
-     <a href="index2.jsp">Regresar</a>
+        // Redirección automática
+        String site = new String("menuArchivos.jsp");
+        response.setStatus(response.SC_MOVED_TEMPORARILY);
+        response.setHeader("Location", site);
 
-<%
+
+         
     }else{
 %>
         Usuario incorrecto
