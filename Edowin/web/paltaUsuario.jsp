@@ -4,6 +4,7 @@
     Author     : YangEnrique
 --%>
 
+<%@page import="funciones.vidaFacil"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="bd.FunMysql"%>
 <%@page import="objetos.Usuario"%>
@@ -29,12 +30,13 @@
 	String ApellidoP = request.getParameter("ApellidoP");
 	String ApellidoM = request.getParameter("ApellidoM");
 	boolean EsAdmin = Boolean.parseBoolean(request.getParameter("EsAdmin"));
-
-	Usuario user = new Usuario(UserName,Mail,Nombre,ApellidoP,ApellidoM,EsAdmin);
-        user.setPassword(Password);
-        FunMysql con = new FunMysql();
-        con.conectar();
-        boolean hola = con.altaUsuario(user);
+        vidaFacil facil = new vidaFacil();
+        if(facil.checaUsuario(UserName)){
+            Usuario user = new Usuario(UserName,Mail,Nombre,ApellidoP,ApellidoM,EsAdmin);
+            user.setPassword(Password);
+            FunMysql con = new FunMysql();
+            con.conectar();
+            boolean hola = con.altaUsuario(user);
         
         
 %>
@@ -50,6 +52,9 @@
                 else
                     out.print("Fallo al registrar usuario");  
                 response.sendRedirect("consultaUsuarios.jsp"); 
+        }else{
+            response.sendRedirect("altaUsuario.jsp");
+        }
             %>
         </h1>
 <%

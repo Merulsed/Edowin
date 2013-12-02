@@ -21,6 +21,7 @@
 </head>
 <body>
 <%
+  
     String cierto = (String)session.getAttribute("inicio");
     if(cierto != null){
          Usuario usuario = (Usuario)session.getAttribute("user");

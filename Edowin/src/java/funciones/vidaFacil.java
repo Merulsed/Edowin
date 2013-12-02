@@ -88,6 +88,15 @@ public class vidaFacil {
         }
     }
     
+    public boolean checaUsuario(String username){
+        Usuario user = obtenUsuarioXUsername(username);
+        if(user.getUsername()==null){
+            return true;
+        }else{
+            return false;
+        }
+    }
+            
     public Archivo obtenArchivo(int idArchivo2){
         int idArchivo=0;
         String nombre=null;

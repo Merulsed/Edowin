@@ -20,7 +20,7 @@
                         Crear Documento
                 </a></li>
                 <li><a href="consultaArchivos.jsp">
-                        <img src="front-end/img/menu.viewdocs.png">
+                        <img src="front-end/img/menu.alldocs.png">
                         Documentos Públicos
                 </a></li>
                 <li><a href="consultaArchivos2.jsp">
