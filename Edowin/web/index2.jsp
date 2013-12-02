@@ -29,7 +29,7 @@
 
 	<div id="wrapper">
 		<div class="sidebar">
-			<p class="logo">Eduwin</p>
+                    <p class="logo"><a class="undecorated" href="index2.jsp">Eduwin</a></p>
 			<ul class="menu">
                                 <% if(usuario.getEsAdmin()){ %>
 				<li><a href="altaUsuario.jsp">
