@@ -14,5 +14,6 @@
     <body>
         <h1>Menu de Archivos</h1>
         <a href="consultaArchivos.jsp">Archvios genrales</a>
+        <a href="consultaArchivos2.jsp">Archvios genrales</a>
     </body>
 </html>

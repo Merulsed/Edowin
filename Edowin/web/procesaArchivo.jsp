@@ -69,6 +69,7 @@
             <option>Documento</option>
             <option>Audio</option>
             <option>Video</option>
+            <option>Foto</option>
             <option>Otro</option>
         </select>
         Publico<br>
