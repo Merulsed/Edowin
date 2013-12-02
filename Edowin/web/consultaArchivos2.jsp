@@ -36,7 +36,7 @@
             FunMysql con = new FunMysql();
             con.conectar();
              try{
-             ResultSet resultado = con.consultaArchivos();
+             ResultSet resultado = con.consultaArchivoPor("Usuario",String.valueOf(usuario.getID()));
              Usuario user;
              vidaFacil facil = new vidaFacil();
        
