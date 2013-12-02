@@ -1,8 +1,3 @@
-<%-- 
-	Document   : consultaUsuarios
-	Created on : 21/11/2013, 09:08:59 AM
-	Author     : YangEnrique
---%>
 
 <%@page import="objetos.Usuario"%>
 <%@page import="bd.FunMysql"%>
@@ -22,6 +17,11 @@
 <body>
 
 <%
+
+        if ((String)session.getAttribute("inicio") == null)
+            response.sendRedirect("index.jsp");
+
+    
 	String cierto = (String)session.getAttribute("inicio");
 	if(cierto != null){
 		 Usuario usuario = (Usuario)session.getAttribute("user");

@@ -1,7 +1,15 @@
+<%@page import="objetos.Usuario"%>
 <div class="sidebar">
     <p class="logo"><a class="undecorated" href="index2.jsp">Eduwin</a></p>
         <ul class="menu">
-                <% if(usuario.getEsAdmin()){ %>
+                <%
+                    
+                    
+                    
+                    
+                    
+                Usuario usuario = (Usuario)session.getAttribute("user");
+                  if(usuario.getEsAdmin()){ %>
                 <li><a href="altaUsuario.jsp">
                         <img src="front-end/img/menu.adduser.png">
                         Crear Usuario
@@ -27,7 +35,7 @@
                         <img src="front-end/img/menu.settings.png">
                         Configuración
                 </a></li>
-                <li><a href="iniciosesion.jsp">
+                <li><a href="endSession.jsp">
                         <img src="front-end/img/menu.close.png">
                         Cerrar Sesión
                 </a></li>
