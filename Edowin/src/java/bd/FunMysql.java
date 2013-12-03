@@ -164,7 +164,7 @@ public class FunMysql {
     public boolean updateArchivo(Archivo archive){
         try{
             Statement sentencia = getCon().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
-            sentencia.executeUpdate("UPDATE Archivo SET nombre='"+archive.getNombre()+"', tipo='"+archive.getTipo()+"', url='"+archive.getUrl()+"', publico='"+archive.getPublico()+"', userID='"+archive.getUser().getID()+"'");
+            sentencia.executeUpdate("UPDATE Archivo SET nombre='"+archive.getNombre()+"', tipo='"+archive.getTipo()+"', url='"+archive.getUrl()+"', publico='"+archive.getPublico()+"', userID='"+archive.getUser().getID()+"' WHERE idArchivo = '"+archive.getIdArchivo()+"'");
         }
         catch(SQLException e){
             e.printStackTrace();
